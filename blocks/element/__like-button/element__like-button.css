@@ -1,0 +1,19 @@
+.element__like-button {
+    min-width: 22px;
+    height: 19px;
+    background: transparent url(../../../img/style/like.svg) center center no-repeat;
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.element__like-button:active {
+    background-image: url(../../../img/style/like_active.svg); /*упомянутый в тренажёре задел*/
+}
+
+.element__like-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s linear; /*добавила для интерактивности*/
+}

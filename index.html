@@ -5,18 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
-    <link rel="icon" type="image/svg" href="./img/logo.svg">
+    <link rel="icon" type="image/svg" href="./img/logo/logo.svg">
     <title>Mesto: Жак-Ив Кусто</title>
 </head>
 <!--основное содержание-->
 
 <body class="page">
+    <!--логотип в шапке-->
     <header class="header">
-        <img class="header__logo" src="./img/logo_w.svg" alt="Логотип портала">
+        <img class="header__logo" src="./img/logo/logo_w.svg" alt="Логотип портала">
     </header>
 
     <!--контент-->
     <main>
+        <!--профиль пользователя-->
+        <section class="profile">
+
+            <img class="profile__image" src="./img/profile/Avatar.png" alt="Фото пользователя">
+            
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button" type="button" title="Редактировать профиль"></button>
+                <p class="profile__intro">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button" type="button" title="Загрузить фотографию"></button>
+        </section>
+
+        <!--блок с карточками-->
+        <section class="elements">
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/karachaevsk.jpg" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/elbrus1.png" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/dombai.png" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/elbrus1.png" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/dombai.png" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Донбай</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+            <div class="element">
+                <img class="element__image" src="./img/photo/karachaevsk.jpg" alt="">
+                <div class="element__info">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
+                </div>
+            </div>
+
+        </section>
 
     </main>
 
