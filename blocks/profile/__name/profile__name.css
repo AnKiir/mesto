@@ -1,5 +1,5 @@
 .profile__name {
-    min-width: 280px;
+    grid-area: name;
     max-width: 294px;
     font-size: 42px;
     font-weight: 400;
@@ -9,11 +9,12 @@
     padding: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 879px) {
     .profile__name {
         max-width: 189px;
         font-size: 27px;
         line-height: auto;
+        align-items: center;
         text-align: center;
     }
 }

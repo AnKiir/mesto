@@ -1,0 +1,10 @@
+.form__title {
+    max-width: 330px;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: auto;
+    color: black;
+    margin: 34px 36px 54px 0;
+    padding: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}

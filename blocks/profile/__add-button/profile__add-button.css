@@ -8,7 +8,7 @@
     padding: 0;
 }
 
-.profile__edit-button:hover {
+.profile__add-button:hover {
     opacity: 0.6;
     cursor: pointer;
 }

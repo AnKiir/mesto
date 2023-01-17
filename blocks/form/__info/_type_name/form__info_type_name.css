@@ -1,0 +1,12 @@
+.form__info_type_name {
+    width: 358px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: auto;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    padding: 0;
+}

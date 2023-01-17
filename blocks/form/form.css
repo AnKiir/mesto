@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 430px;
+    border-radius: 10%;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .form {
+        width: 282px;
+    }
+}
