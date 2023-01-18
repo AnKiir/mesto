@@ -6,3 +6,9 @@
     margin-right: 30px;
     padding: 0;
 }
+
+@media (max-width: 767px) {
+    .profile__image {
+        margin-right: 0;
+    }
+}

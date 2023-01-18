@@ -10,14 +10,16 @@
 
 @media (max-width: 879px) {
     .elements {
+        width: 580px;
         grid-template-columns: repeat(2, 282px);
         column-gap: 10px;
     }
 }
 
-
 @media (max-width: 590px) {
     .elements {
+        width: 282px;
         grid-template-columns: repeat(1, 282px);
+        margin: 0 auto;
     }
 }
