@@ -8,16 +8,8 @@
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    background-color: white;
-    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0;
     padding: 0;
     visibility: hidden;
-}
-
-@media (max-width: 500px) {
-    .popup {
-        padding-top: 123px;
-        justify-content: flex-start;
-    }
 }
