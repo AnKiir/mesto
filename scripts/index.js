@@ -2,18 +2,23 @@ let popup = document.getElementById('editProfile')
 let profileEditButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__close-button');
 
-// форма
+// форма редактирования профиля
 let formElement = document.querySelector('.form');
-let nameInput = document.querySelector('.form__info_type_name');
-let introInput = document.querySelector('.form__info_type_intro');
 let profileName = document.querySelector('.profile__name');
 let profileIntro = document.querySelector('.profile__intro');
+let nameInput = document.querySelector('.form__info_type_name');
+let introInput = document.querySelector('.form__info_type_intro');
 
-// базовые функции
+// базовые функции 
+
+// открытие формы редактирования профиля
 function openPopup() {
     popup.classList.add('popup_opened');
+    nameInput.value = profileName.textContent;
+    introInput.value = profileIntro.textContent;
 }
 
+// закрытие формы редактирования профиля
 function closePopup() {
     popup.classList.remove('popup_opened');
 }
@@ -23,8 +28,8 @@ profileEditButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
 
 
-// отправка формы (редактирование профиля)
-function handleProfileFormSubmit (evt) {
+// отправка формы (редактирование профиля, нет сохранения при перезагрузке)
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileIntro.textContent = introInput.value;
