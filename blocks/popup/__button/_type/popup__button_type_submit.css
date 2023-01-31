@@ -1,26 +1,26 @@
-.form__save {
+.popup__button_type_submit {
     width: 358px;
     height: 50px;
     background-color: black;
     color: white;
     font-size: 18px;
     font-weight: 400;
-    margin: 18px 36px 37px 36px;
+    margin: 48px 36px 37px 36px;
     padding: 0;
     border: none;
     border-radius: 2px;
 }
 
-.form__save:hover {
+.popup__button_type_submit:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
 @media (max-width: 767px) {
-    .form__save {
+    .popup__button_type_submit {
         width: 238px;
         height: 46px;
         font-size: 14px;
-        margin: 0 22px 25px 22px;
+        margin: 45px 22px 25px 22px;
     }
 }

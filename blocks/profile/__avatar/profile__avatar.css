@@ -1,0 +1,9 @@
+.profile__avatar {
+    position: relative;
+}
+
+.profile__avatar:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+/*не по тз, мне так больше нравится в плане интерактивности*/

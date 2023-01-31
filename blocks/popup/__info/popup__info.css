@@ -1,0 +1,30 @@
+.popup__info {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 0 36px 30px 36px;
+    padding: 0 0 10px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* убираю жирную стрёмную обводку */
+.popup__info:focus {
+    outline: 0;
+}
+
+.popup__info:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .popup__info {
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+}

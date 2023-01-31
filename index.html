@@ -20,15 +20,17 @@
     <main>
         <!--профиль пользователя-->
         <section class="profile">
-
-            <img class="profile__image" src="./img/profile/Avatar.png" alt="Фото пользователя">
-
+            <!--Аватарка-->
+            <div class="profile__avatar">
+                <img class="profile__image" src="./img/profile/Avatar.png" alt="Фото пользователя">
+            </div>
+            <!--Биография-->
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit-button" type="button"
-                    title="Редактировать профиль"></button>
+                <button class="profile__edit-button" type="button" title="Редактировать профиль"></button>
                 <p class="profile__intro">Исследователь океана</p>
             </div>
+            <!--Кнопка редактирования галлереи-->
             <button class="profile__add-button" type="button" title="Загрузить фотографию"></button>
         </section>
 
@@ -92,18 +94,18 @@
         <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <!--редактирование профиля-->
-    <section class="popup">
-        <div class="popup__container" id="editProfile">
-            <form class="form" name="changeInfo">
-                <h2 class="form__title">Редактировать профиль</h2>
-                <input type="text" class="form__info form__info_type_name" maxlength="50" minlength="2" placeholder="..."
-                    required>
-                <input type="text" class="form__info form__info_type_intro" maxlength="180" minlength="2"
-                    placeholder="..." required>
-                <button class="form__save" type="submit">Сохранить</button>
+    <!--форма редактирование профиля, переделанная (объеденены папки попапа и формы))-->
+    <section class="popup" id="editProfile">
+        <div class="popup__container">
+            <form class="popup__form" name="changeInfo">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" class="popup__info popup__info_type_name" maxlength="50" minlength="2"
+                    placeholder="Имя Профиля" required>
+                <input type="text" class="popup__info popup__info_type_intro" maxlength="180" minlength="2"
+                    placeholder="Описание Профиля" required>
+                <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
-            <button class="popup__close-button" type="button"></button>
+            <button class="popup__button popup__button_type_close" type="button"></button>
         </div>
     </section>
 

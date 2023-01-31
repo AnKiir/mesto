@@ -16,8 +16,7 @@
     .profile__name {
         max-width: 189px;
         font-size: 27px;
-        line-height: auto;
-        align-items: center;
         text-align: center;
+        margin-left: 40px;
     }
 }

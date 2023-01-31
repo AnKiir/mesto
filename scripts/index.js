@@ -1,13 +1,13 @@
 let popup = document.getElementById('editProfile')
 let profileEditButton = document.querySelector('.profile__edit-button');
-let popupCloseButton = document.querySelector('.popup__close-button');
+let popupCloseButton = document.querySelector('.popup__button_type_close');
 
 // форма редактирования профиля
-let formElement = document.querySelector('.form');
+let formElement = document.querySelector('.popup__form');
 let profileName = document.querySelector('.profile__name');
 let profileIntro = document.querySelector('.profile__intro');
-let nameInput = document.querySelector('.form__info_type_name');
-let introInput = document.querySelector('.form__info_type_intro');
+let nameInput = document.querySelector('.popup__info_type_name');
+let introInput = document.querySelector('.popup__info_type_intro');
 
 // базовые функции 
 

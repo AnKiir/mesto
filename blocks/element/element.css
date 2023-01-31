@@ -1,6 +1,8 @@
 .element {
     width: 282px;
-    /*height: 361px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: white;
     overflow: hidden;
     border-radius: 10px;

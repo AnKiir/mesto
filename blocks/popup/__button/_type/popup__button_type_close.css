@@ -1,6 +1,6 @@
-.popup__close-button {
+.popup__button_type_close {
     position: absolute;
-    background: url('../../../img/style/сlose-button.svg');
+    background: url('../../../../img/style/close-button.svg');
     background-color: transparent;
     background-position: center;
     border: none;
@@ -12,13 +12,13 @@
     padding: 0;
 }
 
-.popup__close-button:hover {
+.popup__button_type_close:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media (max-width: 767px) {
-    .popup__close-button {
+    .popup__button_type_close {
         width: 20px;
         height: 20px;
         top: -36px;
