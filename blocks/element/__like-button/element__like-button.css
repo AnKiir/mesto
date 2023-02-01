@@ -8,9 +8,11 @@
     padding: 0;
 }
 
+/*
 .element__like-button:active {
-    background-image: url(../../../img/style/like_active.svg); /*упомянутый в тренажёре задел*/
+    background-image: url(../../../img/style/like_active.svg);
 }
+*/
 
 .element__like-button:hover {
     opacity: 0.5;

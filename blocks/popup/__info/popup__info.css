@@ -26,5 +26,6 @@
     .popup__info {
         margin-left: 22px;
         margin-right: 22px;
+        padding-left: 0;
     }
 }

@@ -1,6 +1,4 @@
 .profile__name {
-    grid-area: name;
-    max-width: 294px;
     font-size: 42px;
     font-weight: 400;
     line-height: 48px;
@@ -9,14 +7,12 @@
     white-space: nowrap;
     color: white;
     margin: 0;
+    margin-top: 16px;
     padding: 0;
 }
 
-@media (max-width: 879px) {
+@media (max-width: 767px) {
     .profile__name {
-        max-width: 189px;
         font-size: 27px;
-        text-align: center;
-        margin-left: 40px;
     }
 }

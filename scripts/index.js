@@ -1,4 +1,4 @@
-let popup = document.getElementById('editProfile')
+let popup = document.getElementById('editProfile');
 let profileEditButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__button_type_close');
 

@@ -1,19 +1,13 @@
 .profile__info {
-    max-width: 336px;
-    display: grid;
-    align-items: center;
-    grid-template-areas:
-        "name button"
-        "intro intro";
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    margin: 0 auto 0 30px;
+    max-width: 294px;
+    margin: 0 18px 0 0;
     padding: 0;
 }
 
 @media (max-width: 767px) {
     .profile__info {
-        max-width: 282px;
-        margin: 26px auto 0;
+        max-width: 189px;
+        margin-right: 10px;
+        margin-left: 20px;
     }
 }
