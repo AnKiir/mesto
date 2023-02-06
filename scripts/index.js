@@ -43,31 +43,35 @@ formElement.addEventListener('submit', handleProfileFormSubmit);
 
 // К А Р Т О Ч К И
 // карточки на странице (element = card)
-function createCard(el) {
+function createCard(element) {
     const cardElement = templateElement.cloneNode(true);
     const cardImage = cardElement.querySelector('.element__image');
     const cardTitle = cardElement.querySelector('.element__title');
     const deleteButton = cardElement.querySelector('.element__delete-button');
     const likeButton = cardElement.querySelector('.element__like-button');
 
-    cardImage.src = el.link;
-    cardImage.alt = el.name;
-    cardTitle.textContent = el.name;
+    cardImage.src = element.link;
+    cardImage.alt = element.name;
+    cardTitle.textContent = element.name;
 
-    //deleteButton.addEventListener('click');
+    deleteButton.addEventListener('click', (removeCard) => deleteElement(removeCard));
     likeButton.addEventListener('click', (like) => likeElement(like));
 
     return cardElement;
 }
 
-
 // вываливаем карточки
-function renderElement(el) {
-    elements.prepend(createCard(el));
+function renderElement(element) {
+    elements.prepend(createCard(element));
 }
-initialCards.forEach(el => renderElement(el));
+initialCards.forEach(element => renderElement(element));
 
+// удаление карточки
+function deleteElement(remove) {
+    const removeCard = remove.target.closest('.element');
+    removeCard.remove();
+}
 // ставим "лайки"
 function likeElement(like) {
-like.target.classList.toggle('element__like-button_active')
+    like.target.classList.toggle('element__like-button_active')
 }
