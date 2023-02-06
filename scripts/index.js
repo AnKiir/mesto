@@ -55,14 +55,19 @@ function createCard(el) {
     cardTitle.textContent = el.name;
 
     //deleteButton.addEventListener('click');
-    likeButton.addEventListener('click', () => likeButton.classList.toggle('element__like-button_active'));
+    likeButton.addEventListener('click', (like) => likeElement(like));
 
     return cardElement;
 }
 
 
-// карточки
+// вываливаем карточки
 function renderElement(el) {
     elements.prepend(createCard(el));
 }
 initialCards.forEach(el => renderElement(el));
+
+// ставим "лайки"
+function likeElement(like) {
+like.target.classList.toggle('element__like-button_active')
+}
