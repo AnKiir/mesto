@@ -1,15 +1,17 @@
-let popup = document.getElementById('editProfile');
-let profileEditButton = document.querySelector('.profile__edit-button');
-let popupCloseButton = document.querySelector('.popup__button_type_close');
-
-// форма редактирования профиля
-let formElement = document.querySelector('.popup__form');
-let profileName = document.querySelector('.profile__name');
-let profileIntro = document.querySelector('.profile__intro');
-let nameInput = document.querySelector('.popup__info_type_name');
-let introInput = document.querySelector('.popup__info_type_intro');
-
-// базовые функции 
+// К О Н С Т А Н Т Ы
+// редактирование формы
+const popup = document.getElementById('editProfile');
+const profileEditButton = document.querySelector('.profile__edit-button');
+const popupCloseButton = document.querySelector('.popup__button_type_close');
+// попап редактирования формы
+const formElement = document.querySelector('.popup__form');
+const profileName = document.querySelector('.profile__name');
+const profileIntro = document.querySelector('.profile__intro');
+const nameInput = document.querySelector('.popup__info_type_name');
+const introInput = document.querySelector('.popup__info_type_intro');
+// элементы-карточки
+const elements = document.querySelector('.elements');
+const templateElement = document.querySelector('#element-template').content.querySelector('.element');
 
 // открытие формы редактирования профиля
 function openPopup() {
@@ -38,3 +40,29 @@ function handleProfileFormSubmit(evt) {
 
 // обработчик к форме (редактирования профиля)
 formElement.addEventListener('submit', handleProfileFormSubmit);
+
+// К А Р Т О Ч К И
+// карточки на странице (element = card)
+function createCard(el) {
+    const cardElement = templateElement.cloneNode(true);
+    const cardImage = cardElement.querySelector('.element__image');
+    const cardTitle = cardElement.querySelector('.element__title');
+    const deleteButton = cardElement.querySelector('.element__delete-button');
+    const likeButton = cardElement.querySelector('.element__like-button');
+
+    cardImage.src = el.link;
+    cardImage.alt = el.name;
+    cardTitle.textContent = el.name;
+
+    //deleteButton.addEventListener('click');
+    likeButton.addEventListener('click', () => likeButton.classList.toggle('element__like-button_active'));
+
+    return cardElement;
+}
+
+
+// карточки
+function renderElement(el) {
+    elements.prepend(createCard(el));
+}
+initialCards.forEach(el => renderElement(el));

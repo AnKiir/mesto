@@ -1,6 +1,8 @@
 .element__image {
     object-fit: cover;
     width: 282px;
+    height: 282px;
+    object-position: center;
 }
 
 .element__image:hover {

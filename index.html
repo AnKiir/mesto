@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
-    <link rel="icon" type="image/svg" href="./img/logo/logo.svg">
-    <title>Mesto: Жак-Ив Кусто</title>
+    <title>Mesto: РептилиЯ</title>
 </head>
 <!--основное содержание-->
 
@@ -27,8 +26,8 @@
             <!--Биография-->
             <div class="profile__data">
                 <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <p class="profile__intro">Исследователь океана</p>
+                    <h1 class="profile__name">РептилиЯ</h1>
+                    <p class="profile__intro">Осторожно, чешуя</p>
                 </div>
                 <button class="profile__edit-button" type="button" title="Редактировать профиль"></button>
             </div>
@@ -38,55 +37,6 @@
 
         <!--блок с карточками-->
         <section class="elements">
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/karachaevsk.jpg" alt="Карачаевск">
-                <div class="element__info">
-                    <h2 class="element__title">Карачаевск</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/elbrus1.png" alt="Гора Эльбрус">
-                <div class="element__info">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/dombai.png" alt="Домбай">
-                <div class="element__info">
-                    <h2 class="element__title">Домбай</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/elbrus1.png" alt="Эльбрус">
-                <div class="element__info">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/dombai.png" alt="Домбай">
-                <div class="element__info">
-                    <h2 class="element__title">Донбай</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img class="element__image" src="./img/photo/karachaevsk.jpg" alt="Карачаевск">
-                <div class="element__info">
-                    <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button class="element__like-button" type="button" title="Поставить Лайк"></button>
-                </div>
-            </div>
-
         </section>
 
     </main>
@@ -96,7 +46,7 @@
         <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
-    <!--форма редактирование профиля, переделанная (объеденены папки попапа и формы))-->
+    <!--форма редактирование профиля-->
     <section class="popup" id="editProfile">
         <div class="popup__container">
             <form class="popup__form" name="changeInfo">
@@ -111,7 +61,23 @@
         </div>
     </section>
 
+    <!--форма редактирование карточек (перенести из лягушатника)-->
+
+
+    <!--шаблон блоков с карточкам-->
+    <template id="element-template">
+        <acticle class="element">
+            <img class="element__image" alt="Фотография">
+            <button type="button" class="element__delete-button" aria-label="Удалить фото"></button>
+            <div class="element__info">
+                <h2 class="element__title"></h2>
+                <button class="element__like-button" type="button" aria-label="Поставить лайк" name="like"></button>
+            </div>
+        </acticle>
+    </template>
+
     <!--скрипты-->
+    <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 
