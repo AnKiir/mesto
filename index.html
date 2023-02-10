@@ -62,10 +62,29 @@
         </div>
     </section>
 
-    <!--форма редактирование карточек (перенести из лягушатника)-->
-    <section class="">
-
+    <!--форма редактирование карточек-->
+    <section class="popup" id="editElement">
+        <div class="popup__container">
+            <form class="popup__form" name="addElement">
+                <h2 class="popup__title">Новое место</h2>
+                <input type="text" class="popup__info popup__info_type_title" maxlength="50" minlength="2"
+                    placeholder="Название" required>
+                <input type="text" class="popup__info popup__info_type_link" minlength="2"
+                    placeholder="Ссылка на картинку" required>
+                <button class="popup__button popup__button_type_submit" type="submit">Создать</button>
+            </form>
+            <button class="popup__button popup__button_type_close" type="button"></button>
+        </div>
     </section>
+
+    <!--попап для картинок-->
+    <div class="popup popup__element" id="openElement">
+        <div class="popup__element-container">
+            <button class="popup__button popup__button_type_close" type="button"></button>
+            <img class="popup__image" alt="Фотография">
+            <p class="popup__subtitle"></p>
+        </div>
+    </div>
 
     <!--шаблон блоков с карточкам-->
     <template id="element-template">

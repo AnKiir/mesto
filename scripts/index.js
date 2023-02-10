@@ -4,6 +4,7 @@ const popup = document.getElementById('editProfile');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const popupCloseButton = document.querySelector('.popup__button_type_close');
 // попап редактирования формы
+//const popupEditProfile = document.getElementById('editProfile');
 const formElement = document.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const profileIntro = document.querySelector('.profile__intro');
@@ -12,6 +13,11 @@ const introInput = document.querySelector('.popup__info_type_intro');
 // элементы-карточки
 const elements = document.querySelector('.elements');
 const templateElement = document.querySelector('#element-template').content.querySelector('.element');
+// попап редактирования карточек
+const popupAddElement= document.getElementById('editElement');
+const elementEditButton = document.querySelector('.profile__add-button');
+const elementTitle= document.querySelector('popup__info_type_title');
+const elementLink= document.querySelector('popup__info_type_link');
 
 // открытие формы редактирования профиля
 function openPopup() {
@@ -29,7 +35,6 @@ function closePopup() {
 profileEditButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
 
-
 // отправка формы (редактирование профиля, нет сохранения при перезагрузке)
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
@@ -38,7 +43,7 @@ function handleProfileFormSubmit(evt) {
     closePopup();
 }
 
-// обработчик к форме (редактирования профиля)
+// обработчик к форме
 formElement.addEventListener('submit', handleProfileFormSubmit);
 
 // К А Р Т О Ч К И
@@ -75,3 +80,45 @@ function deleteElement(remove) {
 function likeElement(like) {
     like.target.classList.toggle('element__like-button_active')
 }
+
+// попап для новой карточки
+function popupNewCard() {
+    openPopup(popupAddElement);
+}
+
+// форма для новой карточки
+function newElement() {
+    newElementInfo ={
+        name: elementTitle.value,
+        link: elementLink.value
+    };
+    newPhoto = createCard(newElement);
+    elements.prepend(newPhoto);
+    closePopup(popupAddElement);
+}
+
+// мышка-наружка и мышка-прослушка 
+elementEditButton.addEventListener('click', popupNewCard);
+
+// картинка по клику
+const popupImage = document.querySelector('#openElement');
+const imageInPopup = document.querySelector('.popup__image'); // попап с картинкой
+const subtitleInPopup = document.querySelector('.popup__subtitle'); // подпись к картинке
+const imagePreview= document.querySelector('.element__image'); // картинка
+
+function openElementImage() {
+    openPopup(popupImage);
+}
+
+function openImage(name, link) {
+    imageInPopup.src = link;
+    imageInPopup.alt = name;
+    subtitleInPopup.textContent = name;
+    openElementImage();
+}
+
+function closeElementImage() {
+    closePopup(popupImage);
+}
+
+imagePreview.addEventListener('click', openElementImage)
