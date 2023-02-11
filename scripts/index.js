@@ -17,10 +17,7 @@ const elementEditButton = document.querySelector('.profile__add-button');
 const elementTitle = document.querySelector('.popup__info_type_title');
 const elementEditCloseButton= document.querySelector('#closeEditElement');
 const elementLink = document.querySelector('.popup__info_type_link');
-// открытие картинки по клику
-
-
-
+const formAddPhoto = document.querySelector('#addElement'); 
 
 // К А Р Т О Ч К И
 // карточки на странице (element = card)
@@ -101,15 +98,14 @@ function closeNewCard() {
     closePopup(popupAddElement);
 }
 
-// В ПРОЦЕССЕ
-// добавление новой карточки (не работает)
+// добавление новой карточки
 function newElement() {
     newElementInfo = {
         name: elementTitle.value,
         link: elementLink.value
     };
-    newPhoto = createCard(newElement);
-    elements.prepend(newPhoto);
+    newPhoto = createCard(newElementInfo);
+    elements.prepend(newPhoto); 
     closePopup(popupAddElement);
 }
 
@@ -120,13 +116,10 @@ function handleElementFormSubmit(evt) {
 
 elementEditButton.addEventListener('click', popupNewCard);
 elementEditCloseButton.addEventListener('click', closeNewCard);
+formAddPhoto.addEventListener('submit', handleElementFormSubmit);
 
-
-
-
-
-
-// открытие и закрытие картинки по клику
+// В ПРОЦЕССЕ
+// открытие и закрытие картинки по клику НЕ РАБОТАЕТ КАК НАДО
 const popupImage = document.querySelector('#openElement');
 const imageInPopup = document.querySelector('.popup__image'); // попап с картинкой
 const subtitleInPopup = document.querySelector('.popup__subtitle'); // подпись к картинке
