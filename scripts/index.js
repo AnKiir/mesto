@@ -12,10 +12,15 @@ const introInput = document.querySelector('.popup__info_type_intro');
 const elements = document.querySelector('.elements');
 const templateElement = document.querySelector('#element-template').content.querySelector('.element');
 // попап редактирования карточек
-const popupAddElement = document.getElementById('#editElement');
+const popupAddElement = document.querySelector('#editElement');
 const elementEditButton = document.querySelector('.profile__add-button');
-const elementTitle = document.querySelector('popup__info_type_title');
-const elementLink = document.querySelector('popup__info_type_link');
+const elementTitle = document.querySelector('.popup__info_type_title');
+const elementEditCloseButton= document.querySelector('#closeEditElement');
+const elementLink = document.querySelector('.popup__info_type_link');
+// открытие картинки по клику
+
+
+
 
 // К А Р Т О Ч К И
 // карточки на странице (element = card)
@@ -23,15 +28,15 @@ function createCard(element) {
     const cardElement = templateElement.cloneNode(true);
     const cardImage = cardElement.querySelector('.element__image');
     const cardTitle = cardElement.querySelector('.element__title');
-    const deleteButton = cardElement.querySelector('.element__delete-button');
-    const likeButton = cardElement.querySelector('.element__like-button');
+    const deleteButton = cardElement.querySelector('.element__delete-button'); // кнопка удаления картинки
+    const likeButton = cardElement.querySelector('.element__like-button'); // кнопка лайка картинки
 
     cardImage.src = element.link;
     cardImage.alt = element.name;
     cardTitle.textContent = element.name;
 
-    deleteButton.addEventListener('click', (removeCard) => deleteElement(removeCard));
-    likeButton.addEventListener('click', (like) => likeElement(like));
+    deleteButton.addEventListener('click', (removeCard) => deleteElement(removeCard)); // удаляем карточку
+    likeButton.addEventListener('click', (like) => likeElement(like)); // ставим лайк
 
     return cardElement;
 }
@@ -39,12 +44,10 @@ function createCard(element) {
 // открываем-закрываем попапы
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    //document.addEventListener('keydown', closePopupEsc);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    //document.removeEventListener('keydown', closePopupEsc);
 }
 
 // вываливаем карточки
@@ -82,20 +85,24 @@ function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileIntro.textContent = introInput.value;
-    closePopup();
+    closePopup(popupEditProfile);
 }
 
-// обработчик к форме
 formElement.addEventListener('submit', handleProfileFormSubmit);
 
-
-
-// попап для новой карточки
+// открытие и закрытие попапа для добавления новой карточки
 function popupNewCard() {
+    elementTitle.value = '';
+    elementLink.value = '';
     openPopup(popupAddElement);
 }
 
-// форма для новой карточки
+function closeNewCard() {
+    closePopup(popupAddElement);
+}
+
+// В ПРОЦЕССЕ
+// добавление новой карточки (не работает)
 function newElement() {
     newElementInfo = {
         name: elementTitle.value,
@@ -106,14 +113,25 @@ function newElement() {
     closePopup(popupAddElement);
 }
 
-// мышка-наружка и мышка-прослушка 
-elementEditButton.addEventListener('click', popupNewCard);
+function handleElementFormSubmit(evt) {
+    evt.preventDefault();
+    newElement();
+}
 
-// картинка по клику
+elementEditButton.addEventListener('click', popupNewCard);
+elementEditCloseButton.addEventListener('click', closeNewCard);
+
+
+
+
+
+
+// открытие и закрытие картинки по клику
 const popupImage = document.querySelector('#openElement');
 const imageInPopup = document.querySelector('.popup__image'); // попап с картинкой
 const subtitleInPopup = document.querySelector('.popup__subtitle'); // подпись к картинке
 const imagePreview = document.querySelector('.element__image'); // картинка
+const closeImage = document.querySelector('#closeImage'); //кнопка закрытия картинки
 
 function openElementImage() {
     openPopup(popupImage);
@@ -130,4 +148,5 @@ function closeElementImage() {
     closePopup(popupImage);
 }
 
-imagePreview.addEventListener('click', openElementImage)
+imagePreview.addEventListener('click', openElementImage); // не работает как надо, нет картинки и подписи
+closeImage.addEventListener('click', closeElementImage); // закрывает как положено
