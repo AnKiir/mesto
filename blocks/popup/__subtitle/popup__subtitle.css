@@ -1,8 +1,8 @@
-.popup__subtitile {
+.popup__subtitle {
     align-self: flex-start;
     font-size: 12px;
     font-weight: 400;
     color: white;
-    margin: 0;
-    padding: 10px 0 0 0 ;
+    margin: 10px 0 0 0;
+    padding: 0;
 }

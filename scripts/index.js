@@ -15,9 +15,14 @@ const templateElement = document.querySelector('#element-template').content.quer
 const popupAddElement = document.querySelector('#editElement');
 const elementEditButton = document.querySelector('.profile__add-button');
 const elementTitle = document.querySelector('.popup__info_type_title');
-const elementEditCloseButton= document.querySelector('#closeEditElement');
+const elementEditCloseButton = document.querySelector('#closeEditElement');
 const elementLink = document.querySelector('.popup__info_type_link');
-const formAddPhoto = document.querySelector('#addElement'); 
+const formAddPhoto = document.querySelector('#addElement');
+// открытие и закрытие картинки по клику
+const popupImage = document.querySelector('#openImage');
+const imageInPopup = document.querySelector('.popup__image'); // попап с картинкой
+const subtitleInPopup = document.querySelector('.popup__subtitle'); // подпись к картинке
+const closeImage = document.querySelector('#closeImage'); //кнопка закрытия картинки
 
 // К А Р Т О Ч К И
 // карточки на странице (element = card)
@@ -34,6 +39,13 @@ function createCard(element) {
 
     deleteButton.addEventListener('click', (removeCard) => deleteElement(removeCard)); // удаляем карточку
     likeButton.addEventListener('click', (like) => likeElement(like)); // ставим лайк
+    // открываем картинки в попапе
+    cardImage.addEventListener('click', () => {
+        imageInPopup.src = element.link;
+        imageInPopup.alt = element.name;
+        subtitleInPopup.textContent = element.name;
+        openPopup(popupImage);
+    });
 
     return cardElement;
 }
@@ -74,8 +86,8 @@ function closeEditProfilePopup() {
     closePopup(popupEditProfile);
 }
 
-profileEditButton.addEventListener('click', openEditProfilePopup); // открытие формы профиля
-popupCloseButton.addEventListener('click', closeEditProfilePopup); // закрытие формы профиля
+profileEditButton.addEventListener('click', openEditProfilePopup);
+popupCloseButton.addEventListener('click', closeEditProfilePopup);
 
 // отправка формы (редактирование профиля, нет сохранения при перезагрузке)
 function handleProfileFormSubmit(evt) {
@@ -105,7 +117,7 @@ function newElement() {
         link: elementLink.value
     };
     newPhoto = createCard(newElementInfo);
-    elements.prepend(newPhoto); 
+    elements.prepend(newPhoto);
     closePopup(popupAddElement);
 }
 
@@ -118,28 +130,9 @@ elementEditButton.addEventListener('click', popupNewCard);
 elementEditCloseButton.addEventListener('click', closeNewCard);
 formAddPhoto.addEventListener('submit', handleElementFormSubmit);
 
-// В ПРОЦЕССЕ
-// открытие и закрытие картинки по клику НЕ РАБОТАЕТ КАК НАДО
-const popupImage = document.querySelector('#openElement');
-const imageInPopup = document.querySelector('.popup__image'); // попап с картинкой
-const subtitleInPopup = document.querySelector('.popup__subtitle'); // подпись к картинке
-const imagePreview = document.querySelector('.element__image'); // картинка
-const closeImage = document.querySelector('#closeImage'); //кнопка закрытия картинки
-
-function openElementImage() {
-    openPopup(popupImage);
-}
-
-function openImage(name, link) {
-    imageInPopup.src = link;
-    imageInPopup.alt = name;
-    subtitleInPopup.textContent = name;
-    openElementImage();
-}
-
+// закрыть попап с картинкой
 function closeElementImage() {
     closePopup(popupImage);
 }
 
-imagePreview.addEventListener('click', openElementImage); // не работает как надо, нет картинки и подписи
-closeImage.addEventListener('click', closeElementImage); // закрывает как положено
+closeImage.addEventListener('click', closeElementImage); 
