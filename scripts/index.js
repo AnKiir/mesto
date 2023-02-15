@@ -101,8 +101,6 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // открытие и закрытие попапа для добавления новой карточки
 function popupNewCard() {
-    elementTitle.value = '';
-    elementLink.value = '';
     openPopup(popupAddElement);
 }
 
@@ -124,6 +122,8 @@ function addNewElement() {
 function handleElementFormSubmit(evt) {
     evt.preventDefault();
     addNewElement();
+    elementTitle.value = '';
+    elementLink.value = '';
 }
 
 elementEditButton.addEventListener('click', popupNewCard);
