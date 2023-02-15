@@ -1,9 +1,9 @@
 // К О Н С Т А Н Т Ы
 const profileEditButton = document.querySelector('.profile__edit-button');
-const popupCloseButton = document.querySelector('.popup__button_type_close');
+const profileCloseButton = document.querySelector('.popup__button_type_close');
 // попап редактирования формы
 const popupEditProfile = document.querySelector('#editProfile');
-const formElement = document.querySelector('.popup__form');
+const profileForm = document.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const profileIntro = document.querySelector('.profile__intro');
 const nameInput = document.querySelector('.popup__info_type_name');
@@ -87,7 +87,7 @@ function closeEditProfilePopup() {
 }
 
 profileEditButton.addEventListener('click', openEditProfilePopup);
-popupCloseButton.addEventListener('click', closeEditProfilePopup);
+profileCloseButton.addEventListener('click', closeEditProfilePopup);
 
 // отправка формы (редактирование профиля, нет сохранения при перезагрузке)
 function handleProfileFormSubmit(evt) {
@@ -97,7 +97,7 @@ function handleProfileFormSubmit(evt) {
     closePopup(popupEditProfile);
 }
 
-formElement.addEventListener('submit', handleProfileFormSubmit);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // открытие и закрытие попапа для добавления новой карточки
 function popupNewCard() {
@@ -111,19 +111,19 @@ function closeNewCard() {
 }
 
 // добавление новой карточки
-function newElement() {
-    newElementInfo = {
+function addNewElement() {
+    const newElementInfo = {
         name: elementTitle.value,
         link: elementLink.value
     };
-    newPhoto = createCard(newElementInfo);
+    const newPhoto = createCard(newElementInfo);
     elements.prepend(newPhoto);
     closePopup(popupAddElement);
 }
 
 function handleElementFormSubmit(evt) {
     evt.preventDefault();
-    newElement();
+    addNewElement();
 }
 
 elementEditButton.addEventListener('click', popupNewCard);

@@ -22,5 +22,17 @@ const initialCards = [
   {
     name: 'Гордый и борзый хамелеон',
     link: 'https://images.unsplash.com/photo-1541377607488-a4165ca4fb85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2102&q=80'
+  },
+  {
+    name: 'Что такое?',
+    link: 'https://images.unsplash.com/photo-1546992844-e97467b9aeab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1672&q=80'
+  },
+  {
+    name: 'Сделал реснички',
+    link: 'https://images.unsplash.com/photo-1600029175350-55029fd344b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
+  },
+  {
+    name: 'Усталь',
+    link: 'https://images.unsplash.com/photo-1576492979330-562be19a36bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'
   }
 ];
