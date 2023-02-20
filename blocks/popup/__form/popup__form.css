@@ -3,12 +3,12 @@
     flex-direction: column;
     width: 430px;
     border-radius: 10%;
-    margin: 0 auto;
-    padding: 0;
+    padding: 0 0 0 36px;
 }
 
 @media (max-width: 767px) {
     .popup__form {
         width: 282px;
+        padding-left: 22px
     }
 }
