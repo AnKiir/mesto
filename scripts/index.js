@@ -106,7 +106,13 @@ function closeEditProfilePopup() {
 }
 
 profileEditButton.addEventListener('click', openEditProfilePopup);
-profileCloseButton.addEventListener('click', closeEditProfilePopup);
+
+// закрытие попапов по (х)
+const closeButtons = document.querySelectorAll('.popup__button_type_close');
+closeButtons.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+});
 
 // отправка формы (редактирование профиля, нет сохранения при перезагрузке)
 function handleProfileFormSubmit(evt) {
@@ -119,7 +125,7 @@ function handleProfileFormSubmit(evt) {
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // открытие и закрытие попапа для добавления новой карточки
-function popupNewCard() {
+function openPopupCard() {
     openPopup(popupAddElement);
 }
 
@@ -141,11 +147,10 @@ function addNewElement() {
 function handleElementFormSubmit(evt) {
     evt.preventDefault();
     addNewElement();
-    elementTitle.value = '';
-    elementLink.value = '';
+    evt.target.reset()
 }
 
-elementEditButton.addEventListener('click', popupNewCard);
+elementEditButton.addEventListener('click', openPopupCard);
 elementEditCloseButton.addEventListener('click', closeNewCard);
 formAddPhoto.addEventListener('submit', handleElementFormSubmit);
 

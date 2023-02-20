@@ -56,6 +56,12 @@ const setEventListeners = (formElement, validationData) => {
     const inputList = Array.from(formElement.querySelectorAll(validationData.inputSelector));
     const submitButton = formElement.querySelector(validationData.submitButtonSelector);
     toggleButtonState(inputList, submitButton, validationData);
+    // обработчик для reset
+    formElement.addEventListener('reset', () => {
+        setTimeout(() => {
+          toggleButtonState(inputList, submitButton, validationData), 0 })
+      })
+
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             isValid(formElement, inputElement, validationData);
