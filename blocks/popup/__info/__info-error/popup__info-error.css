@@ -1,4 +1,12 @@
 .popup__info-error {
     color: red;
     font-size: 12px;
+    margin: 5px 0 0 36px;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+    .popup__info-error {
+        margin-left: 22px;
+    }
 }
