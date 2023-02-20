@@ -1,7 +1,8 @@
 // К О Н С Т А Н Т Ы
+const popups = document.querySelectorAll('.popup');
+// попап редактирования формы
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileCloseButton = document.querySelector('.popup__button_type_close');
-// попап редактирования формы
 const popupEditProfile = document.querySelector('#editProfile');
 const profileForm = document.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
@@ -52,11 +53,29 @@ function createCard(element) {
 
 // открываем-закрываем попапы
 function openPopup(popup) {
+    document.addEventListener('keydown', closePopupEsc);
     popup.classList.add('popup_opened');
 }
 
 function closePopup(popup) {
+    document.removeEventListener('keydown', closePopupEsc);
     popup.classList.remove('popup_opened');
+}
+
+// закрытие по overlay
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup')) {
+            closePopup(popup);
+        }
+    });
+});
+
+// закрытие через ESC
+function closePopupEsc(evt) {
+    if (evt.key === 'Escape') {
+        closePopup(document.querySelector('.popup_opened'));
+    }
 }
 
 // вываливаем карточки
@@ -135,4 +154,4 @@ function closeElementImage() {
     closePopup(popupImage);
 }
 
-closeImage.addEventListener('click', closeElementImage); 
+closeImage.addEventListener('click', closeElementImage);

@@ -52,10 +52,12 @@
         <div class="popup__container">
             <form class="popup__form" name="changeInfo">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" class="popup__info popup__info_type_name" maxlength="50" minlength="2"
+                <input type="text" class="popup__info popup__info_type_name" maxlength="40" minlength="2"
                     placeholder="Имя Профиля" required>
-                <input type="text" class="popup__info popup__info_type_intro" maxlength="180" minlength="2"
+                    <span class="popup__info-error"></span>
+                <input type="text" class="popup__info popup__info_type_intro" maxlength="200" minlength="2"
                     placeholder="Описание Профиля" required>
+                    <span class="popup__info-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
             <button class="popup__button popup__button_type_close" type="button"></button>
@@ -67,10 +69,12 @@
         <div class="popup__container">
             <form class="popup__form" id="addElement">
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" class="popup__info popup__info_type_title" maxlength="50" minlength="2"
+                <input type="text" class="popup__info popup__info_type_title" maxlength="30" minlength="2"
                     placeholder="Название" required>
-                <input type="text" class="popup__info popup__info_type_link" minlength="2"
+                    <span class="popup__info-error"></span>
+                <input type="url" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
+                    <span class="popup__info-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Создать</button>
             </form>
             <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
