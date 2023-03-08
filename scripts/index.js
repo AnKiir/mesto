@@ -88,6 +88,7 @@ function openEditProfilePopup() {
     openPopup(popupEditProfile);
     nameInput.value = profileName.textContent;
     introInput.value = profileIntro.textContent;
+    editFormValidation.resetValidation();
 };
 
 profileEditButton.addEventListener('click', openEditProfilePopup);

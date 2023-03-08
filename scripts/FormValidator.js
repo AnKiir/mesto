@@ -81,6 +81,13 @@ export class FormValidator {
         })
     };
 
+    resetValidation() {
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement)
+        });
+        this._toggleButtonState();
+    }
+
     // вызов функции
     enableValidation() {
         this._setEventListeners()

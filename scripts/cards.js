@@ -36,7 +36,19 @@ const initialCards = [
   {
     name: 'Усталь',
     link: 'https://images.unsplash.com/photo-1576492979330-562be19a36bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'
-  }
+  },
+  {
+    name: 'Мини кусь',
+    link: 'https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80'
+  },
+  {
+    name: 'Вкусняшка есть?',
+    link: 'https://images.unsplash.com/photo-1444947173422-9737546c41a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
+  },
+  {
+    name: '3, 2, прыг!',
+    link: 'https://images.unsplash.com/photo-1510058766084-0a8d51e24fa4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80'
+  },
 ];
 
 export default initialCards
