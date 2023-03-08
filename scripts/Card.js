@@ -20,10 +20,10 @@ _getTemplate() {
 
 createCard() {
     this._elementCard = this._getTemplate();
-    this._elementCard.querySelector('.element__title').textContent = this._name;
     this._elementCardImg = this._elementCard.querySelector('.element__image');
     this._elementCardImg.alt = this._name;
     this._elementCardImg.src = this._link;
+    this._elementCard.querySelector('.element__title').textContent = this._name;
     this._setEventListeners();
 
     return this._elementCard;

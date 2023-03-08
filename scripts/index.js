@@ -40,8 +40,7 @@ const subtitlePreview = document.querySelector('.popup__subtitle'); // подп�
 
 // КАРТОЧКИ
 
-// открываем картинки в попапе
-function openPreview(name, link) {
+function takeData(name, link) {
     imagePreview.alt = name;
     imagePreview.src = link;
     subtitlePreview.textContent = name;
@@ -50,27 +49,27 @@ function openPreview(name, link) {
 
 // добавление новой карточки
 function addNewCard(element) {
-    const newCard = new Card (element, '#element-template', openPreview)
+    const newCard = new Card (element, '#element-template', takeData)
         .createCard()
     return newCard;
 };
+
+// блок картинок
+function renderElement(element) {
+    elements.prepend(addNewCard(element));
+};
+initialCards.forEach(element => renderElement(element));
 
 function handleElementFormSubmit(evt) {
     evt.preventDefault();
     const cardInfo = {};
     cardInfo.name = elementTitle.value;
     cardInfo.link = elementLink.value;
-    addNewCard(cardInfo);
+    renderElement(cardInfo);
+    closePopup(popupAddElement);
     evt.target.reset();
 };
 formAddPhoto.addEventListener('submit', handleElementFormSubmit);
-
-// блок картинок
-function renderElement(card) {
-    elements.prepend(addNewCard(card));
-};
-initialCards.forEach(element => renderElement(element));
-
 
 // ПОП-АПЫ И ФОРМЫ
 // открываем-закрываем попапы
