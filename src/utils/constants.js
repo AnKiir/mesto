@@ -67,6 +67,8 @@ export const templateElement = document.querySelector('#element-template').conte
 // редактирование формы
 export const profileEditButton = document.querySelector('.profile__edit-button'); // кнопка
 export const popupEditProfile = document.querySelector('#editProfile'); // форма
+export const profileName = document.querySelector('.profile__name');
+export const profileIntro = document.querySelector('.profile__intro');
 
 // редактирование карточек
 export const elementEditButton = document.querySelector('.profile__add-button'); // кнопка

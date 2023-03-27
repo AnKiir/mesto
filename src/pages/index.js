@@ -11,7 +11,11 @@ import {
     popupAddCard,
     popupImage,
     imagePreview,
-    subtitlePreview
+    subtitlePreview,
+    profileEditButton,
+    elementEditButton,
+    profileName,
+    profileIntro
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js'; // действия с карточками
@@ -25,15 +29,10 @@ import UserInfo from '../components/UserInfo.js'; // об авторе
 const popups = document.querySelectorAll('.popup');
 
 // попап редактирования формы
-const profileEditButton = document.querySelector('.profile__edit-button');
-const popupEditProfile = document.querySelector('#editProfile');
 const profileForm = document.querySelector('.popup__form');
-const profileName = document.querySelector('.profile__name');
-const profileIntro = document.querySelector('.profile__intro');
 const nameInput = document.querySelector('.popup__info_type_name');
 const introInput = document.querySelector('.popup__info_type_intro');
 // попап редактирования карточек
-const elementEditButton = document.querySelector('.profile__add-button');
 const elementTitle = document.querySelector('.popup__info_type_title');
 const elementLink = document.querySelector('.popup__info_type_link');
 const formAddPhoto = document.querySelector('#addElement');
@@ -73,6 +72,13 @@ popupAddElement.setEventListeners();
 // открываем красивую картинку с ящеркой
 const openImage = new PopupWithImage(imagePreview);
 openImage.setEventListeners();
+
+
+// ПРОФИЛЬ
+const userInfo = new UserInfo({profileName, profileIntro});
+
+
+
 
 // открытие формы - редактирования профиля
 function openEditProfilePopup() {
