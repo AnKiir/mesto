@@ -86,21 +86,6 @@ const handleProfileFormSubmit = (evt, dataInput) => {
 const popoupEditProfile = new PopupWithForm(profileForm, handleProfileFormSubmit);
 popoupEditProfile.setEventListeners();
 
-// открытие формы - добавление новой карточки
-function openPopupCard() {
-    openPopup(popupAddElement);
-};
-
-elementEditButton.addEventListener('click', openPopupCard);
-
-// отправка формы (редактирование профиля, нет сохранения при перезагрузке)
-function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileIntro.textContent = introInput.value;
-    closePopup(popupEditProfile);
-};
-
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 // ВАЛИДАЦИЯ
