@@ -5,14 +5,15 @@ export default class UserInfo {
     };
     // текущие данные пользователя
     getUserInfo() {
-        return {
-            title: this._name.textContent,
-            data: this._intro.textContent
+        this._userInfo = {
+            name: this._name.textContent,
+            intro: this._intro.textContent
         };
+        return this._userInfo;
     };
     // новые данные пользователя
-    setUserInfo() {
-        this._name.textContent = dataInput.title;
-        this._intro.textContent = dataInput.data;
+    setUserInfo(dataInput) {
+        this._name.textContent = dataInput.name;
+        this._intro.textContent = dataInput.intro;
     };
 }
