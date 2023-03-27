@@ -70,7 +70,7 @@ export const popupEditProfile = document.querySelector('#editProfile'); // фо�
 
 // редактирование карточек
 export const elementEditButton = document.querySelector('.profile__add-button'); // кнопка
-export const popupAddCardSelector = document.querySelector('#editElement'); // форма
+export const popupAddCard = document.querySelector('#editElement'); // форма
 
 // попапы
 export const popupSelector = document.querySelectorAll('.popup');

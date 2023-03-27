@@ -8,7 +8,7 @@ import { options } from '../utils/constants.js'; // валидация
 import {
     elements,
     templateElement,
-    popupAddCardSelector,
+    popupAddCard,
     popupImage,
     imagePreview,
     subtitlePreview
@@ -33,7 +33,6 @@ const profileIntro = document.querySelector('.profile__intro');
 const nameInput = document.querySelector('.popup__info_type_name');
 const introInput = document.querySelector('.popup__info_type_intro');
 // попап редактирования карточек
-//const popupAddElement = document.querySelector('#editElement');
 const elementEditButton = document.querySelector('.profile__add-button');
 const elementTitle = document.querySelector('.popup__info_type_title');
 const elementLink = document.querySelector('.popup__info_type_link');
@@ -67,7 +66,7 @@ const handleElementFormSubmit = (evt, dataInput) => {
 };
 
 // добавляем карточку
-const popupAddElement = new PopupWithForm(popupAddCardSelector, handleElementFormSubmit);
+const popupAddElement = new PopupWithForm(popupAddCard, handleElementFormSubmit);
 popupAddElement.setEventListeners();
 
 // открываем красивую картинку с ящеркой
