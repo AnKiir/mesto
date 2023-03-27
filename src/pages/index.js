@@ -7,7 +7,7 @@ import { options } from '../utils/constants.js'; // валидация
 
 import {
     elements,
-    templateElement,
+    //templateElement,
     popupAddCard,
     popupImage,
     imagePreview,
@@ -50,8 +50,9 @@ cardSection.renderItems();
 
 // новая карточка с ящеркой
 function addCard(element) {
-    const newCard = new Card(element, templateElement,
-        () => { PopupWithImage.open(element) }).generateCard();
+    const newCard = new Card(element, '#element-template',
+        () => { PopupWithImage.open(element) })
+        .createCard();
     return newCard;
 };
 
@@ -72,37 +73,6 @@ popupAddElement.setEventListeners();
 // открываем красивую картинку с ящеркой
 const openImage = new PopupWithImage(imagePreview);
 openImage.setEventListeners();
-
-//function takeData(name, link) {
-//  imagePreview.alt = name;
-//  imagePreview.src = link;
-//  subtitlePreview.textContent = name;
-//  openPopup(popupImage);
-//};
-
-// добавление новой карточки
-//function addNewCard(element) {
-//  const newCard = new Card(element, '#element-template', takeData)
-//     .createCard()
-//    return newCard;
-//};
-
-// блок картинок
-//function renderElement(element) {
-//  elements.prepend(addNewCard(element));
-//};
-//initialCards.forEach(element => renderElement(element));
-
-//function handleElementFormSubmit(evt) {
-// evt.preventDefault();
-// const cardInfo = {};
-// cardInfo.name = elementTitle.value;
-// cardInfo.link = elementLink.value;
-//renderElement(cardInfo);
-// closePopup(popupAddElement);
-//  evt.target.reset();
-//};
-//formAddPhoto.addEventListener('submit', handleElementFormSubmit);
 
 // открытие формы - редактирования профиля
 function openEditProfilePopup() {
