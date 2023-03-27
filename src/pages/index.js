@@ -81,12 +81,15 @@ const handleProfileFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
     userInfo.setUserInfo(dataInput);
     popoupEditProfile.close();
-}
+};
 
 const popoupEditProfile = new PopupWithForm(profileForm, handleProfileFormSubmit);
 popoupEditProfile.setEventListeners();
 
-profileForm.addEventListener('submit', handleProfileFormSubmit);
+function openEditProfileForm() {
+    popoupEditProfile.open(userInfo.getUserInfo());
+};
+profileEditButton.addEventListener('click', openEditProfileForm);
 
 // ВАЛИДАЦИЯ
 // проверка валидации форм
