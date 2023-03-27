@@ -7,7 +7,6 @@ import { options } from '../utils/constants.js'; // валидация
 
 import {
     elements,
-    //templateElement,
     popupAddCard,
     popupImage,
     imagePreview,
@@ -28,7 +27,7 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js'; // об авторе
 
 // КОНСТАНТЫ
-const popups = document.querySelectorAll('.popup');
+//const popups = document.querySelectorAll('.popup');
 
 // попап редактирования формы
 const nameInput = document.querySelector('.popup__info_type_name');
@@ -74,6 +73,10 @@ popupAddElement.setEventListeners();
 const openImage = new PopupWithImage(imagePreview);
 openImage.setEventListeners();
 
+elementEditButton.addEventListener('click', () => {popupAddCard.open()
+const addCardValidation = new FormValidator(options, popupAddElement);
+addCardValidation.enableValidation();
+});
 
 // ПРОФИЛЬ
 const userInfo = new UserInfo({profileName, profileIntro});
@@ -97,5 +100,3 @@ profileEditButton.addEventListener('click', openEditProfileForm);
 const editFormValidation = new FormValidator(options, popupEditProfile);
 editFormValidation.enableValidation();
 
-const addCardValidation = new FormValidator(options, popupAddElement);
-addCardValidation.enableValidation();
