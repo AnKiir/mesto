@@ -1,9 +1,17 @@
-'use strict';
-
 // импортируем
-import initialCards from './cards.js';
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+import '../pages/index.css'; // стили
+
+import {
+    initialCards,
+
+} from '../utils/constants.js';
+
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithForm from '../components/PopupWithForm';
+import PopupWithImage from '../components/PopupWithImage';
+import Section from '../components/Section';
+import UserInfo from '../components/UserInfo';
 
 // КОНСТАНТЫ
 const popups = document.querySelectorAll('.popup');

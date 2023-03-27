@@ -1,11 +1,9 @@
-'use strict';
-
-class Card {
-    constructor(data, templateSelector, openPopup) {
+export default class Card {
+    constructor(data, templateSelector, handleCardClick) {
         this._templateSelector = templateSelector;
         this._name = data.name;
         this._link = data.link;
-        this._openPopup = openPopup;
+        this._handleCardClick = handleCardClick;
     };
 
 // создаём карточку по шаблону
@@ -34,6 +32,11 @@ _likeCard() {
     this.classList.toggle('element__like-button_active');
 };
 
+// открываем карточку
+_openCardPopup() {
+    this._handleCardClick(this._name, this._link);
+}
+
 // удаляем карточку
 _deleteCard() {
     this._elementCard.remove();
@@ -43,7 +46,7 @@ _deleteCard() {
 // слушатели для карточки: открытие, лайк, удаление
 _setEventListeners() {
     this._elementCardImg.addEventListener('click', () => {
-        this._openPopup(this._name, this._link);
+        this._openCardPopup(this._name, this._link);
     });
     this._elementCard.querySelector('.element__like-button').addEventListener('click', this._likeCard);
     this._elementCard.querySelector('.element__delete-button').addEventListener('click', () => {
@@ -52,5 +55,3 @@ _setEventListeners() {
 };
 
 }
-
-export default Card
