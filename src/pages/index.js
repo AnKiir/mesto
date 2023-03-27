@@ -14,6 +14,7 @@ import {
     subtitlePreview,
     profileEditButton,
     elementEditButton,
+    popupEditProfileForm,
     profileName,
     profileIntro,
     profileForm
@@ -83,7 +84,7 @@ const handleProfileFormSubmit = (evt, dataInput) => {
     popoupEditProfile.close();
 };
 
-const popoupEditProfile = new PopupWithForm(profileForm, handleProfileFormSubmit);
+const popoupEditProfile = new PopupWithForm(popupEditProfileForm, handleProfileFormSubmit);
 popoupEditProfile.setEventListeners();
 
 function openEditProfileForm() {
