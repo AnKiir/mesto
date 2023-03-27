@@ -15,7 +15,8 @@ import {
     profileEditButton,
     elementEditButton,
     profileName,
-    profileIntro
+    profileIntro,
+    profileForm
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js'; // действия с карточками
@@ -29,7 +30,6 @@ import UserInfo from '../components/UserInfo.js'; // об авторе
 const popups = document.querySelectorAll('.popup');
 
 // попап редактирования формы
-const profileForm = document.querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__info_type_name');
 const introInput = document.querySelector('.popup__info_type_intro');
 // попап редактирования карточек
@@ -77,18 +77,14 @@ openImage.setEventListeners();
 // ПРОФИЛЬ
 const userInfo = new UserInfo({profileName, profileIntro});
 
+const handleProfileFormSubmit = (evt, dataInput) => {
+    evt.preventDefault();
+    userInfo.setUserInfo(dataInput);
+    popoupEditProfile.close();
+}
 
-
-
-// открытие формы - редактирования профиля
-function openEditProfilePopup() {
-    openPopup(popupEditProfile);
-    nameInput.value = profileName.textContent;
-    introInput.value = profileIntro.textContent;
-    editFormValidation.resetValidation();
-};
-
-profileEditButton.addEventListener('click', openEditProfilePopup);
+const popoupEditProfile = new PopupWithForm(profileForm, handleProfileFormSubmit);
+popoupEditProfile.setEventListeners();
 
 // открытие формы - добавление новой карточки
 function openPopupCard() {

@@ -69,6 +69,7 @@ export const profileEditButton = document.querySelector('.profile__edit-button')
 export const popupEditProfile = document.querySelector('#editProfile'); // форма
 export const profileName = document.querySelector('.profile__name');
 export const profileIntro = document.querySelector('.profile__intro');
+export const profileForm = document.querySelector('.popup__form');
 
 // редактирование карточек
 export const elementEditButton = document.querySelector('.profile__add-button'); // кнопка
