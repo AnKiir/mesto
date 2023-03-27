@@ -73,10 +73,7 @@ popupAddElement.setEventListeners();
 const openImage = new PopupWithImage(imagePreview);
 openImage.setEventListeners();
 
-elementEditButton.addEventListener('click', () => {popupAddCard.open()
-const addCardValidation = new FormValidator(options, popupAddElement);
-addCardValidation.enableValidation();
-});
+elementEditButton.addEventListener('click', () => {popupAddCard.open()});
 
 // ПРОФИЛЬ
 const userInfo = new UserInfo({profileName, profileIntro});
@@ -100,3 +97,5 @@ profileEditButton.addEventListener('click', openEditProfileForm);
 const editFormValidation = new FormValidator(options, popupEditProfile);
 editFormValidation.enableValidation();
 
+const addCardValidation = new FormValidator(options, popupAddElement);
+addCardValidation.enableValidation();
