@@ -62,7 +62,7 @@ export const options = {
 // константы-селекторы
 
 export const selectors = {
-  popupProfile: '.popup-editprofile',
+  popupEditProfile: '.popup-editprofile',
   popupAddCard: '.popup-addnewcard',
   popupImage: '.popup-element',
 };

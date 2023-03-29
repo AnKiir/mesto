@@ -72,7 +72,7 @@ const handleProfileFormSubmit = (evt, dataInput) => {
     popupEditProfile.close();
 };
 
-const popupEditProfile = new PopupWithForm(popupEditProfileForm, handleProfileFormSubmit);
+const popupEditProfile = new PopupWithForm({popupSelector: selectors. popupEditProfile}, handleProfileFormSubmit);
 popupEditProfile.setEventListeners();
 
 function openEditProfileForm() {
