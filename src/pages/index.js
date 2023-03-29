@@ -10,7 +10,6 @@ import {
     selectors,
     profileEditButton,
     elementEditButton,
-    popupEditProfileForm,
     profileName,
     profileIntro,
 } from '../utils/constants.js';
@@ -39,14 +38,14 @@ const handleElementFormSubmit = (evt, dataInput) => {
     data.name = dataInput.name;
     data.link = dataInput.link;
     cardSection.addItem(addCard(data));
-    popupAddElement.close();
+    popupAddElement.closePopup();
 };
 
 // новая карточка с ящеркой
-function addCard(element) {
-    const newCard = new Card(element, '#element-template', {
+function addCard(data) {
+    const newCard = new Card(data, '#element-template', {
         handleCardClick: (name, link) => {
-            openImage.open(name, link)
+            openImage.openPopup(name, link);
         }
     })
         .createCard();
@@ -61,7 +60,7 @@ popupAddElement.setEventListeners();
 const openImage = new PopupWithImage({popupSelector: selectors.popupImage});
 openImage.setEventListeners();
 
-elementEditButton.addEventListener('click', () => { popupAddCard.open() });
+elementEditButton.addEventListener('click', () => { popupAddCard.openPopup() });
 
 // ПРОФИЛЬ
 const userInfo = new UserInfo({ profileName, profileIntro });
@@ -69,14 +68,14 @@ const userInfo = new UserInfo({ profileName, profileIntro });
 const handleProfileFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
     userInfo.setUserInfo(dataInput);
-    popupEditProfile.close();
+    popupEditProfile.closePopup();
 };
 
-const popupEditProfile = new PopupWithForm({popupSelector: selectors. popupEditProfile}, handleProfileFormSubmit);
+const popupEditProfile = new PopupWithForm({popupSelector: selectors.popupEditProfile}, handleProfileFormSubmit);
 popupEditProfile.setEventListeners();
 
 function openEditProfileForm() {
-    popupEditProfile.open(userInfo.getUserInfo());
+    popupEditProfile.openPopup(userInfo.getUserInfo());
 };
 profileEditButton.addEventListener('click', openEditProfileForm);
 
