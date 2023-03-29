@@ -10,7 +10,7 @@ import {
     templateElement,
     selectors,
     popupAddCard,
-    popupImage,
+    //popupImage,
     subtitlePreview,
     profileEditButton,
     elementEditButton,
@@ -50,7 +50,7 @@ const handleElementFormSubmit = (evt, dataInput) => {
 // новая карточка с ящеркой
 function addCard(card) {
     const newCard = new Card(card, '#element-template',
-        () => { openImage.open(card) })
+        (evt) => { openImage.open(evt) })
         .createCard();
     return newCard;
 };
@@ -60,7 +60,7 @@ const popupAddElement = new PopupWithForm(popupAddCard, handleElementFormSubmit)
 popupAddElement.setEventListeners();
 
 // открываем красивую картинку с ящеркой
-const openImage = new PopupWithImage(popupImage);
+const openImage = new PopupWithImage('#openImage');
 openImage.setEventListeners();
 
 elementEditButton.addEventListener('click', () => {popupAddCard.open()});

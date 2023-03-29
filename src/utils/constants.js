@@ -61,10 +61,10 @@ export const options = {
 
 // константы-элементы
 
-export const selectors = {
-  popupAddCard: '',
-  popupImage: '.popup-element'
-};
+//export const selectors = {
+//  popupAddCard: '',
+//  popupImage: '#openImage'
+//};
 
 
 // элементы-карточки
