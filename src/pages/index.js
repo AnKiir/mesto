@@ -81,14 +81,14 @@ const userInfo = new UserInfo({profileName, profileIntro});
 const handleProfileFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
     userInfo.setUserInfo(dataInput);
-    popoupEditProfile.close();
+    popupEditProfile.close();
 };
 
-const popoupEditProfile = new PopupWithForm(popupEditProfileForm, handleProfileFormSubmit);
-popoupEditProfile.setEventListeners();
+const popupEditProfile = new PopupWithForm(popupEditProfileForm, handleProfileFormSubmit);
+popupEditProfile.setEventListeners();
 
 function openEditProfileForm() {
-    popoupEditProfile.open(userInfo.getUserInfo());
+    popupEditProfile.open(userInfo.getUserInfo());
 };
 profileEditButton.addEventListener('click', openEditProfileForm);
 
