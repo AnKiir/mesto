@@ -11,7 +11,6 @@ import {
     selectors,
     popupAddCard,
     popupImage,
-    imagePreview,
     subtitlePreview,
     profileEditButton,
     elementEditButton,
@@ -41,17 +40,17 @@ cardSection.renderItems();
 // инициируем создание карточки
 const handleElementFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
-    const cardInfo = {};
-    cardInfo.name = dataInput.name;
-    cardInfo.link = dataInput.link;
-    cardSection.addItem(addCard(cardInfo));
+    const data = {};
+    data.name = dataInput.name;
+    data.link = dataInput.link;
+    cardSection.addItem(addCard(data));
     popupAddElement.close();
 };
 
 // новая карточка с ящеркой
-function addCard(item) {
-    const newCard = new Card(item, '#element-template',
-        () => { openImage.open(item) })
+function addCard(card) {
+    const newCard = new Card(card, '#element-template',
+        () => { openImage.open(card) })
         .createCard();
     return newCard;
 };
@@ -61,7 +60,7 @@ const popupAddElement = new PopupWithForm(popupAddCard, handleElementFormSubmit)
 popupAddElement.setEventListeners();
 
 // открываем красивую картинку с ящеркой
-const openImage = new PopupWithImage('.popup-element');
+const openImage = new PopupWithImage(popupImage);
 openImage.setEventListeners();
 
 elementEditButton.addEventListener('click', () => {popupAddCard.open()});
