@@ -7,6 +7,8 @@ import { options } from '../utils/constants.js'; // валидация
 
 import {
     elements,
+    templateElement,
+    selectors,
     popupAddCard,
     popupImage,
     imagePreview,
@@ -36,14 +38,6 @@ const cardSectionData = {
 const cardSection = new Section(cardSectionData, elements);
 cardSection.renderItems();
 
-// новая карточка с ящеркой
-function addCard(element) {
-    const newCard = new Card(element, '#element-template',
-        () => { PopupWithImage.open(element) })
-        .createCard();
-    return newCard;
-};
-
 // инициируем создание карточки
 const handleElementFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
@@ -54,12 +48,20 @@ const handleElementFormSubmit = (evt, dataInput) => {
     popupAddElement.close();
 };
 
+// новая карточка с ящеркой
+function addCard(item) {
+    const newCard = new Card(item, '#element-template',
+        () => { openImage.open(item) })
+        .createCard();
+    return newCard;
+};
+
 // добавляем карточку
 const popupAddElement = new PopupWithForm(popupAddCard, handleElementFormSubmit);
 popupAddElement.setEventListeners();
 
 // открываем красивую картинку с ящеркой
-const openImage = new PopupWithImage(imagePreview);
+const openImage = new PopupWithImage('.popup-element');
 openImage.setEventListeners();
 
 elementEditButton.addEventListener('click', () => {popupAddCard.open()});
