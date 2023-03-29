@@ -33,9 +33,9 @@ export default class Card {
     };
 
     // открываем карточку
-    _openCardPopup() {
-        this._handleCardClick(this._name, this._link);
-    }
+    //_openCardPopup() {
+    //    this._handleCardClick(this._name, this._link);
+    //}
 
     // удаляем карточку
     _deleteCard() {
@@ -46,7 +46,7 @@ export default class Card {
     // слушатели для карточки: открытие, лайк, удаление
     _setEventListeners() {
         this._elementCardImg.addEventListener('click', () => {
-            this._openCardPopup(this._name, this._link);
+            this._handleCardClick(this._name, this._link);
         });
         this._elementCard.querySelector('.element__like-button').addEventListener('click', this._likeCard);
         this._elementCard.querySelector('.element__delete-button').addEventListener('click', () => {

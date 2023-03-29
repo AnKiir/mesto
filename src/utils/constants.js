@@ -79,7 +79,8 @@ export const popupAddCard = document.querySelector('#editElement'); // форм�
 export const popupSelector = document.querySelectorAll('.popup');
 
 // открытие и закрытие картинки по клику
-export const popupImage = document.querySelector('#openImage');
+//export const popupImage = document.querySelector('#openImage');
+export const popupImage = document.querySelector('.popup-element');
 export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
 export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
 

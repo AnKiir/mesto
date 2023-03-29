@@ -27,8 +27,6 @@ import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js'; // об авторе
 
 // КОНСТАНТЫ
-//const popups = document.querySelectorAll('.popup');
-
 // попап редактирования формы
 const nameInput = document.querySelector('.popup__info_type_name');
 const introInput = document.querySelector('.popup__info_type_intro');
