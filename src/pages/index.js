@@ -26,15 +26,6 @@ import PopupWithImage from '../components/PopupWithImage.js'; // открыва�
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js'; // об авторе
 
-// КОНСТАНТЫ
-// попап редактирования формы
-const nameInput = document.querySelector('.popup__info_type_name');
-const introInput = document.querySelector('.popup__info_type_intro');
-// попап редактирования карточек
-const elementTitle = document.querySelector('.popup__info_type_title');
-const elementLink = document.querySelector('.popup__info_type_link');
-const formAddPhoto = document.querySelector('#addElement');
-
 // КАРТОЧКИ
 // начальные карточки с ящерицами
 const cardSectionData = {

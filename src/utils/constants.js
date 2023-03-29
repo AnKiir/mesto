@@ -78,9 +78,17 @@ export const popupAddCard = document.querySelector('#editElement'); // форм�
 // попапы
 export const popupSelector = document.querySelectorAll('.popup');
 
+// попап редактирования формы
+const nameInput = document.querySelector('.popup__info_type_name');
+const introInput = document.querySelector('.popup__info_type_intro');
+// попап редактирования карточек
+const elementTitle = document.querySelector('.popup__info_type_title');
+const elementLink = document.querySelector('.popup__info_type_link');
+const formAddPhoto = document.querySelector('#addElement');
+
 // открытие и закрытие картинки по клику
-//export const popupImage = document.querySelector('#openImage');
-export const popupImage = document.querySelector('.popup-element');
+export const popupImage = document.querySelector('#openImage');
+//export const popupImage = document.querySelector('.popup-element');
 export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
 export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
 
