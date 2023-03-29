@@ -7,17 +7,12 @@ import { options } from '../utils/constants.js'; // валидация
 
 import {
     elements,
-    templateElement,
     selectors,
-    popupAddCard,
-    //popupImage,
-    subtitlePreview,
     profileEditButton,
     elementEditButton,
     popupEditProfileForm,
     profileName,
     profileIntro,
-    profileForm
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js'; // действия с карточками
@@ -59,11 +54,11 @@ function addCard(element) {
 };
 
 // добавляем карточку
-const popupAddElement = new PopupWithForm(popupAddCard, handleElementFormSubmit);
+const popupAddElement = new PopupWithForm({popupSelector: selectors.popupAddCard}, handleElementFormSubmit);
 popupAddElement.setEventListeners();
 
 // открываем красивую картинку с ящеркой
-const openImage = new PopupWithImage('#openImage');
+const openImage = new PopupWithImage({popupSelector: selectors.popupImage});
 openImage.setEventListeners();
 
 elementEditButton.addEventListener('click', () => { popupAddCard.open() });

@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(data, templateSelector, {handleCardClick}) {
+    constructor(data, templateSelector, { handleCardClick }) {
         this._templateSelector = templateSelector;
         this._name = data.name;
         this._link = data.link;
@@ -41,11 +41,9 @@ export default class Card {
 
     // слушатели для карточки: открытие, лайк, удаление
     _setEventListeners() {
-        this._elementCard.querySelector('.element__image').addEventListener('click', () => {this._handleCardClick()});
+        this._elementCardImg.addEventListener('click', () => this._handleCardClick(this._name, this._link));
         this._elementCard.querySelector('.element__like-button').addEventListener('click', this._likeCard);
-        this._elementCard.querySelector('.element__delete-button').addEventListener('click', () => {
-            this._deleteCard();
-        });
+        this._elementCard.querySelector('.element__delete-button').addEventListener('click', () => { this._deleteCard(); });
     };
 
 }

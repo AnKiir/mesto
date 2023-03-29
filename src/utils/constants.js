@@ -59,12 +59,13 @@ export const options = {
   errorClass: '.popup__info-error_visible',
 };
 
-// константы-элементы
+// константы-селекторы
 
-//export const selectors = {
-//  popupAddCard: '',
-//  popupImage: '#openImage'
-//};
+export const selectors = {
+  popupProfile: '.popup-editprofile',
+  popupAddCard: '.popup-addnewcard',
+  popupImage: '.popup-element',
+};
 
 
 // элементы-карточки
@@ -94,7 +95,7 @@ const elementLink = document.querySelector('.popup__info_type_link');
 const formAddPhoto = document.querySelector('#addElement');
 
 // открытие и закрытие картинки по клику
-export const popupImage = document.querySelector('#openImage');
+//export const popupImage = document.querySelector('#openImage');
 //export const popupImage = document.querySelector('.popup-element');
 export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
 export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
