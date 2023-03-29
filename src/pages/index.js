@@ -48,9 +48,12 @@ const handleElementFormSubmit = (evt, dataInput) => {
 };
 
 // новая карточка с ящеркой
-function addCard(card) {
-    const newCard = new Card(card, '#element-template',
-        (evt) => { openImage.open(evt) })
+function addCard(element) {
+    const newCard = new Card(element, '#element-template', {
+        handleCardClick: (name, link) => {
+            openImage.open(name, link)
+        }
+    })
         .createCard();
     return newCard;
 };
@@ -63,10 +66,10 @@ popupAddElement.setEventListeners();
 const openImage = new PopupWithImage('#openImage');
 openImage.setEventListeners();
 
-elementEditButton.addEventListener('click', () => {popupAddCard.open()});
+elementEditButton.addEventListener('click', () => { popupAddCard.open() });
 
 // ПРОФИЛЬ
-const userInfo = new UserInfo({profileName, profileIntro});
+const userInfo = new UserInfo({ profileName, profileIntro });
 
 const handleProfileFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
