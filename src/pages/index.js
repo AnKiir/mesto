@@ -16,7 +16,7 @@ import {
 
 import Card from '../components/Card.js'; // действия с карточками
 import FormValidator from '../components/FormValidator.js'; // валидация основная
-import PopupWithForm from '../components/PopupWithForm.js'; // открываем формы
+//import PopupWithForm from '../components/PopupWithForm.js'; // открываем формы
 import PopupWithImage from '../components/PopupWithImage.js'; // открываем картинку
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js'; // об авторе
@@ -38,14 +38,14 @@ const handleElementFormSubmit = (evt, dataInput) => {
     data.name = dataInput.name;
     data.link = dataInput.link;
     cardSection.addItem(addCard(data));
-    popupAddElement.closePopup();
+    popupAddElement.close();
 };
 
 // новая карточка с ящеркой
 function addCard(data) {
     const newCard = new Card(data, '#element-template', {
         handleCardClick: (name, link) => {
-            openImage.openPopup(name, link);
+            openImage.open(name, link);
         }
     })
         .createCard();
@@ -60,7 +60,7 @@ popupAddElement.setEventListeners();
 const openImage = new PopupWithImage({popupSelector: selectors.popupImage});
 openImage.setEventListeners();
 
-elementEditButton.addEventListener('click', () => { popupAddCard.openPopup() });
+elementEditButton.addEventListener('click', () => { popupAddCard.open() });
 
 // ПРОФИЛЬ
 const userInfo = new UserInfo({ profileName, profileIntro });
@@ -68,14 +68,14 @@ const userInfo = new UserInfo({ profileName, profileIntro });
 const handleProfileFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
     userInfo.setUserInfo(dataInput);
-    popupEditProfile.closePopup();
+    popupEditProfile.close();
 };
 
 const popupEditProfile = new PopupWithForm({popupSelector: selectors.popupEditProfile}, handleProfileFormSubmit);
 popupEditProfile.setEventListeners();
 
 function openEditProfileForm() {
-    popupEditProfile.openPopup(userInfo.getUserInfo());
+    popupEditProfile.open(userInfo.getUserInfo());
 };
 profileEditButton.addEventListener('click', openEditProfileForm);
 
