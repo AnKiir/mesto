@@ -64,7 +64,7 @@ export const options = {
 export const selectors = {
   popupEditProfile: '.popup-editprofile',
   popupAddCard: '.popup-addnewcard',
-  popupImage: '.popup-element',
+  popupImage: '.element',
 };
 
 
