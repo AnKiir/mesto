@@ -62,7 +62,7 @@ function addCard(item, templateSelector) {
         handleCardClick: (name, link) => {
             popupWithImage.open(name, link);
         }
-    })
+    });
         return card.createCard();
 };
 
