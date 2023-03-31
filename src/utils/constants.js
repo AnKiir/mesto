@@ -1,3 +1,46 @@
+// для валидации
+export const options = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__info',
+  submitButtonSelector: '.popup__button_type_submit',
+  inactiveButtonClass: 'popup__button_type_submit_disabled',
+  inputErrorClass: '.popup__info-error',
+  errorClass: '.popup__info-error_visible',
+};
+
+// константы-селекторы
+export const selectors = {
+  popupSelector: '.popup',
+  popupEditProfile: '.popup-editprofile',
+  popupAddCard: '.popup-addnewcard',
+  popupImage: '.popup-element',
+  nameSelector: '.profile__name',
+  introSelector: '.profile__intro'
+};
+
+// кнопки
+// кнопка редактирования информации в профиле
+export const profileEditButton = document.querySelector('.profile__edit-button');
+// кнопка добавления новой карточки-картинки
+export const cardEditButton = document.querySelector('.profile__add-button');
+
+// формы редактирования (профиль + карточка)
+export const popupEditProfileForm = document.querySelector('#editProfile');
+export const popupAddCard = document.querySelector('#editElement');
+//const formAddPhoto = document.querySelector('#addElement');
+
+// поля ввода инфорамции в формах
+export const nameInput = document.querySelector('.popup__info_type_name');
+export const introInput = document.querySelector('.popup__info_type_intro');
+
+// элементы-карточки
+export const elements = document.querySelector('.elements');
+export const templateElement = document.querySelector('#element-template');
+//.content.querySelector('.element');
+export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
+export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
+
+// мои базовые карточки
 const initialCards = [
   {
     name: 'Василиск',
@@ -43,60 +86,6 @@ const initialCards = [
     name: 'Вкусняшка есть?',
     link: 'https://images.unsplash.com/photo-1444947173422-9737546c41a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   },
-  {
-    name: '3, 2, прыг!',
-    link: 'https://images.unsplash.com/photo-1510058766084-0a8d51e24fa4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80'
-  },
 ];
-
-// для валидации
-export const options = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__info',
-  submitButtonSelector: '.popup__button_type_submit',
-  inactiveButtonClass: 'popup__button_type_submit_disabled',
-  inputErrorClass: '.popup__info-error',
-  errorClass: '.popup__info-error_visible',
-};
-
-// константы-селекторы
-
-export const selectors = {
-  popupSelector: '.popup',
-  popupEditProfile: '.popup-editprofile',
-  popupAddCard: '.popup-addnewcard',
-  popupImage: '.popup-element',
-  nameSelector: '.profile__name',
-  introSelector: '.profile__intro'
-};
-
-
-// элементы-карточки
-export const elements = document.querySelector('.elements');
-export const templateElement = document.querySelector('#element-template').content.querySelector('.element');
-
-// редактирование формы
-export const profileEditButton = document.querySelector('.profile__edit-button'); // кнопка
-export const popupEditProfileForm = document.querySelector('#editProfile'); // форма
-export const profileForm = document.querySelector('.popup__form');
-
-// редактирование карточек
-export const elementEditButton = document.querySelector('.profile__add-button'); // кнопка
-export const popupAddCard = document.querySelector('#editElement'); // форма
-
-// попапы
-//export const popupSelector = document.querySelectorAll('.popup');
-
-// попап редактирования формы
-//const nameInput = document.querySelector('.popup__info_type_name');
-//const introInput = document.querySelector('.popup__info_type_intro');
-// попап редактирования карточек
-//const elementTitle = document.querySelector('.popup__info_type_title');
-//const elementLink = document.querySelector('.popup__info_type_link');
-//const formAddPhoto = document.querySelector('#addElement');
-
-// открытие и закрытие картинки по клику
-export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
-export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
 
 export default initialCards

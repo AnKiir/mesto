@@ -9,7 +9,9 @@ import {
     elements,
     selectors,
     profileEditButton,
-    elementEditButton,
+    cardEditButton,
+    nameInput,
+    introInput
 
 } from '../utils/constants.js';
 
@@ -20,16 +22,48 @@ import PopupWithImage from '../components/PopupWithImage.js'; // открыва�
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js'; // об авторе
 
-// КАРТОЧКИ
-// новая карточка с ящеркой
-function addCard(item) {
-    const newCard = new Card(item, '#element-template', {
+// информация о пользователе
+const userInfo = new UserInfo({
+    popupSelector: selectors.nameSelector,
+    popupSelector: selectors.introSelector
+});
+
+// превью картинки с ящеркой
+const popupWithImage = new PopupWithImage({
+    popupSelector: selectors.popupImage
+});
+
+// попап (добавить картинку)
+const popupAddCard = new PopupWithForm({ 
+    popupSelector: selectors.popupAddCard 
+}, handleCardFormSubmit);
+
+// попап (редактировать профиль)
+const popupEditProfile = new PopupWithForm({
+    popupSelector: selectors.popupEditProfile
+}, handleProfileFormSubmit);
+
+// функция для открытия формы редактирования профиля
+function openEditProfileForm() {
+    nameInput.value = userInfo.getUserInfo().name;
+    introInput.value = userInfo.getUserInfo().intro;
+    popupEditProfile.open();
+};
+
+const handleProfileFormSubmit = (evt, dataInput) => {
+    evt.preventDefault();
+    userInfo.setUserInfo(dataInput);
+    popupEditProfile.close();
+};
+
+// функция создания новой карточки с ящеркой
+function addCard(item, templateSelector) {
+    const card = new Card(item, templateSelector, {
         handleCardClick: (name, link) => {
-            openImage.open(name, link);
+            popupWithImage.open(name, link);
         }
     })
-        .createCard();
-    return newCard;
+        return card.createCard();
 };
 
 // начальные карточки с ящерицами
@@ -51,33 +85,8 @@ const handleCardFormSubmit = (evt, dataInput) => {
     popupAddCard.close();
 };
 
-// добавляем карточку
-const popupAddCard = new PopupWithForm({popupSelector: selectors.popupAddCard}, handleCardFormSubmit);
-console.log(selectors.popupAddCard);
-popupAddCard.setEventListeners();
+cardEditButton.addEventListener('click', () => { popupAddCard.open() });
 
-// открываем красивую картинку с ящеркой
-const openImage = new PopupWithImage({popupSelector: selectors.popupImage});
-openImage.setEventListeners();
-
-elementEditButton.addEventListener('click', () => { popupAddCard.open() });
-
-// ПРОФИЛЬ
-const userInfo = new UserInfo({ popupSelector: selectors.nameSelector, popupSelector: selectors.introSelector });
-
-const handleProfileFormSubmit = (evt, dataInput) => {
-    evt.preventDefault();
-    userInfo.setUserInfo(dataInput);
-    popupEditProfile.close();
-};
-
-const popupEditProfile = new PopupWithForm({popupSelector: selectors.popupEditProfile}, handleProfileFormSubmit);
-popupEditProfile.setEventListeners();
-
-function openEditProfileForm() {
-    popupEditProfile.open(userInfo.getUserInfo());
-};
-profileEditButton.addEventListener('click', openEditProfileForm);
 
 // ВАЛИДАЦИЯ
 // проверка валидации форм
@@ -86,3 +95,9 @@ editFormValidation.enableValidation();
 
 const addCardValidation = new FormValidator(options, popupAddCard);
 addCardValidation.enableValidation();
+
+// СЛУШАТЕЛИ
+popupWithImage.setEventListeners();
+popupAddCard.setEventListeners();
+popupEditProfile.setEventListeners();
+profileEditButton.addEventListener('click', openEditProfileForm);
