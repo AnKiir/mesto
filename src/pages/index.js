@@ -32,9 +32,20 @@ const popupWithImage = new PopupWithImage({
     popupSelector: selectors.popupImage
 });
 
+// инициируем создание карточки
+const handleCardFormSubmit = (evt, dataInput) => {
+    evt.preventDefault();
+    console.log(1);
+    const data = {};
+    data.name = dataInput.name;
+    data.link = dataInput.link;
+    cardSection.addItem(addCard(data));
+    popupAddCard.close();
+};
+
 // попап (добавить картинку)
-const popupAddCard = new PopupWithForm({ 
-    popupSelector: selectors.popupAddCard 
+const popupAddCard = new PopupWithForm({
+    popupSelector: selectors.popupAddCard
 }, handleCardFormSubmit);
 
 // попап (редактировать профиль)
@@ -56,13 +67,13 @@ const handleProfileFormSubmit = (evt, dataInput) => {
 };
 
 // функция создания новой карточки с ящеркой
-function addCard(item, templateSelector) {
-    const card = new Card(item, templateSelector, {
+function addCard(item) {
+    const card = new Card(item,  '#element-template', {
         handleCardClick: (name, link) => {
             popupWithImage.open(name, link);
         }
     });
-        return card.createCard();
+    return card.createCard();
 };
 
 // начальные карточки с ящерицами
@@ -74,26 +85,18 @@ const cardSectionData = {
 const cardSection = new Section(cardSectionData, elements);
 cardSection.renderItems();
 
-// инициируем создание карточки
-const handleCardFormSubmit = (evt, dataInput) => {
-    evt.preventDefault();
-    const data = {};
-    data.name = dataInput.name;
-    data.link = dataInput.link;
-    cardSection.addItem(addCard(data));
-    popupAddCard.close();
-};
+
 
 cardEditButton.addEventListener('click', () => { popupAddCard.open() });
 
 
 // ВАЛИДАЦИЯ
 // проверка валидации форм
-const editFormValidation = new FormValidator(options, popupEditProfile);
-editFormValidation.enableValidation();
+//const editFormValidation = new FormValidator(options, popupEditProfile);
+//editFormValidation.enableValidation();
 
-const addCardValidation = new FormValidator(options, popupAddCard);
-addCardValidation.enableValidation();
+//const addCardValidation = new FormValidator(options, popupAddCard);
+//addCardValidation.enableValidation();
 
 // СЛУШАТЕЛИ
 popupWithImage.setEventListeners();
