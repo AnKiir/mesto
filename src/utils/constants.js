@@ -27,7 +27,6 @@ export const cardEditButton = document.querySelector('.profile__add-button');
 // формы редактирования (профиль + карточка)
 export const popupEditProfileForm = document.querySelector('#editProfile');
 export const popupAddCard = document.querySelector('#editElement');
-//const formAddPhoto = document.querySelector('#addElement');
 
 // поля ввода инфорамции в формах
 export const nameInput = document.querySelector('.popup__info_type_name');

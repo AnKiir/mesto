@@ -5,11 +5,10 @@ export default class UserInfo {
     };
     // текущие данные пользователя
     getUserInfo() {
-        this._userInfo = {
+        return {
             name: this._name.textContent,
             intro: this._intro.textContent
         };
-        return this._userInfo;
     };
     // новые данные пользователя
     setUserInfo(dataInput) {

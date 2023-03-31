@@ -24,7 +24,6 @@ export default class Card {
         this._elementCardImg.src = this._link;
         this._elementCardTitle.textContent = this._name;
         this._setEventListeners();
-
         return this._elementCard;
     };
 

@@ -51,10 +51,10 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="changeInfo" novalidate>
-                <input type="text" id="name-input" class="popup__info popup__info_type_name" maxlength="40"
+                <input type="text" name="name" id="name-input" class="popup__info popup__info_type_name" maxlength="40"
                     minlength="2" placeholder="Имя Профиля" required>
                 <span class="name-input-error popup__info-error"></span>
-                <input type="text" id="intro-input" class="popup__info popup__info_type_intro" maxlength="200"
+                <input type="text" name="intro" id="intro-input" class="popup__info popup__info_type_intro" maxlength="200"
                     minlength="2" placeholder="Описание Профиля" required>
                 <span class="intro-input-error popup__info-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
@@ -68,10 +68,10 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" id="addElement" novalidate>
-                <input type="text" id="title-input" class="popup__info popup__info_type_title" maxlength="30"
+                <input type="text" name="name" id="title-input" class="popup__info popup__info_type_title" maxlength="30"
                     minlength="2" placeholder="Название" required>
                 <span class="title-input-error popup__info-error"></span>
-                <input type="url" id="link-input" class="popup__info popup__info_type_link" minlength="2"
+                <input type="url" name="link" id="link-input" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
                 <span class="link-input-error popup__info-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Создать</button>
@@ -90,7 +90,7 @@
     </div>
 
     <!--шаблон блоков с карточкам-->
-    <template id="element-template">
+    <template class="element-template" id="element-template">
         <acticle class="element">
             <img class="element__image" alt="Фотография">
             <button type="button" class="element__delete-button" aria-label="Удалить фото"></button>

@@ -1,14 +1,12 @@
-'use strict';
-
-export class FormValidator {
+export default class FormValidator {
     constructor(options, formElement) {
-        this._formElement = formElement;
-        this._formSelector = options.formSelector;
+        this._formElement = formElement.popupForm;
         this._inputSelector = options.inputSelector;
-        this._submitButtonSelector = options.submitButtonSelector;
-        this._inactiveButtonClass = options.inactiveButtonClass;
         this._inputErrorClass = options.inputErrorClass;
         this._errorClass = options.errorClass;
+
+        this._submitButtonSelector = options.submitButtonSelector;
+        this._inactiveButtonClass = options.inactiveButtonClass;
     };
 
     // показать сообщение об ошибке
@@ -94,5 +92,3 @@ export class FormValidator {
     };
 
 }
-
-export default FormValidator

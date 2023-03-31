@@ -23,8 +23,8 @@ import UserInfo from '../components/UserInfo.js'; // об авторе
 
 // информация о пользователе
 const userInfo = new UserInfo({
-    popupSelector: selectors.nameSelector,
-    popupSelector: selectors.introSelector
+    nameSelector: selectors.nameSelector,
+    introSelector: selectors.introSelector
 });
 
 // превью картинки с ящеркой
@@ -35,7 +35,6 @@ const popupWithImage = new PopupWithImage({
 // инициируем создание карточки
 const handleCardFormSubmit = (evt, dataInput) => {
     evt.preventDefault();
-    console.log(1);
     const data = {};
     data.name = dataInput.name;
     data.link = dataInput.link;
@@ -48,6 +47,12 @@ const popupAddCard = new PopupWithForm({
     popupSelector: selectors.popupAddCard
 }, handleCardFormSubmit);
 
+const handleProfileFormSubmit = (evt, dataInput) => {
+    evt.preventDefault();
+    userInfo.setUserInfo(dataInput);
+    popupEditProfile.close();
+};
+
 // попап (редактировать профиль)
 const popupEditProfile = new PopupWithForm({
     popupSelector: selectors.popupEditProfile
@@ -58,12 +63,6 @@ function openEditProfileForm() {
     nameInput.value = userInfo.getUserInfo().name;
     introInput.value = userInfo.getUserInfo().intro;
     popupEditProfile.open();
-};
-
-const handleProfileFormSubmit = (evt, dataInput) => {
-    evt.preventDefault();
-    userInfo.setUserInfo(dataInput);
-    popupEditProfile.close();
 };
 
 // функция создания новой карточки с ящеркой
@@ -85,21 +84,15 @@ const cardSectionData = {
 const cardSection = new Section(cardSectionData, elements);
 cardSection.renderItems();
 
-
-
 cardEditButton.addEventListener('click', () => { popupAddCard.open() });
-
-
-// ВАЛИДАЦИЯ
-// проверка валидации форм
-//const editFormValidation = new FormValidator(options, popupEditProfile);
-//editFormValidation.enableValidation();
-
-//const addCardValidation = new FormValidator(options, popupAddCard);
-//addCardValidation.enableValidation();
-
-// СЛУШАТЕЛИ
 popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
 popupEditProfile.setEventListeners();
 profileEditButton.addEventListener('click', openEditProfileForm);
+
+// ВАЛИДАЦИЯ
+// проверка валидации форм
+const editFormValidation = new FormValidator(options, popupEditProfile);
+const addCardValidation = new FormValidator(options, popupAddCard);
+editFormValidation.enableValidation();
+addCardValidation.enableValidation();
