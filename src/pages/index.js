@@ -12,7 +12,6 @@ import {
     cardEditButton,
     nameInput,
     introInput
-
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js'; // действия с карточками
