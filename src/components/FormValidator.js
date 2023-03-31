@@ -72,13 +72,6 @@ export default class FormValidator {
         });
     };
 
-    _enableValidation = (validationData) => {
-        const formList = Array.from(document.querySelectorAll(validationData.formSelector));
-        formList.forEach((formElement) => {
-            setEventListeners(formElement, validationData);
-        })
-    };
-
     resetValidation() {
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement)
@@ -88,7 +81,7 @@ export default class FormValidator {
 
     // вызов функции
     enableValidation() {
-        this._setEventListeners()
+        this._setEventListeners();
     };
 
 }

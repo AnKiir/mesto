@@ -95,4 +95,6 @@ profileEditButton.addEventListener('click', openEditProfileForm);
 const editFormValidation = new FormValidator(options, popupEditProfile);
 const addCardValidation = new FormValidator(options, popupAddCard);
 editFormValidation.enableValidation();
+editFormValidation.resetValidation();
 addCardValidation.enableValidation();
+addCardValidation.resetValidation();
