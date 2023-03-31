@@ -62,9 +62,12 @@ export const options = {
 // константы-селекторы
 
 export const selectors = {
+  popupSelector: '.popup',
   popupEditProfile: '.popup-editprofile',
   popupAddCard: '.popup-addnewcard',
-  popupImage: '.element',
+  popupImage: '.popup-element',
+  nameSelector: '.profile__name',
+  introSelector: '.profile__intro'
 };
 
 
@@ -75,8 +78,6 @@ export const templateElement = document.querySelector('#element-template').conte
 // редактирование формы
 export const profileEditButton = document.querySelector('.profile__edit-button'); // кнопка
 export const popupEditProfileForm = document.querySelector('#editProfile'); // форма
-export const profileName = document.querySelector('.profile__name');
-export const profileIntro = document.querySelector('.profile__intro');
 export const profileForm = document.querySelector('.popup__form');
 
 // редактирование карточек
@@ -84,19 +85,17 @@ export const elementEditButton = document.querySelector('.profile__add-button');
 export const popupAddCard = document.querySelector('#editElement'); // форма
 
 // попапы
-export const popupSelector = document.querySelectorAll('.popup');
+//export const popupSelector = document.querySelectorAll('.popup');
 
 // попап редактирования формы
-const nameInput = document.querySelector('.popup__info_type_name');
-const introInput = document.querySelector('.popup__info_type_intro');
+//const nameInput = document.querySelector('.popup__info_type_name');
+//const introInput = document.querySelector('.popup__info_type_intro');
 // попап редактирования карточек
-const elementTitle = document.querySelector('.popup__info_type_title');
-const elementLink = document.querySelector('.popup__info_type_link');
-const formAddPhoto = document.querySelector('#addElement');
+//const elementTitle = document.querySelector('.popup__info_type_title');
+//const elementLink = document.querySelector('.popup__info_type_link');
+//const formAddPhoto = document.querySelector('#addElement');
 
 // открытие и закрытие картинки по клику
-//export const popupImage = document.querySelector('#openImage');
-//export const popupImage = document.querySelector('.popup-element');
 export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой
 export const subtitlePreview = document.querySelector('.popup__subtitle'); // подпись к картинке
 
