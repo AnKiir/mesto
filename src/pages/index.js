@@ -10,8 +10,6 @@ import {
     selectors,
     profileEditButton,
     cardEditButton,
-    nameInput,
-    introInput
 } from '../utils/constants.js';
 
 import Card from '../components/Card.js'; // действия с карточками
@@ -60,9 +58,7 @@ const popupEditProfile = new PopupWithForm({
 
 // функция для открытия формы редактирования профиля
 function openEditProfileForm() {
-    nameInput.value = userInfo.getUserInfo().name;
-    introInput.value = userInfo.getUserInfo().intro;
-    popupEditProfile.open();
+    popupEditProfile.open(userInfo.getUserInfo());
 };
 
 // функция создания новой карточки с ящеркой
