@@ -17,9 +17,9 @@
 .element__image{height:282px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;width:282px}.element__image:hover{cursor:pointer;opacity:.9;transition:opacity .3s linear}
 .element__info{align-items:center;display:flex;justify-content:space-between;margin:0;padding:25px 15px 27px 21px}
 .element__title{font-size:24px;font-weight:900;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
-
+.element__like-container{display:flex;flex-direction:column;gap:3px}
 .element__like-button{background:transparent url(87ed371465c7a6a1cd01.svg) 50% no-repeat;border:none;height:19px;margin:0;min-width:22px;outline:none;padding:0}.element__like-button:hover{cursor:pointer;opacity:.5;transition:opacity .3s linear}
-
+.element__like-counter{color:#000;font-size:13px;line-height:16px;margin:0;text-align:center}
 .element__like-button_active{background-image:url(8d9f29de62e9bdc36210.svg)}
 .element__delete-button{background-color:transparent;background-image:url(cbc09a894bdd4c956365.svg);border:none;height:18px;position:absolute;right:20px;top:20px;width:18px}.element__delete-button:hover{cursor:pointer;opacity:.6}
 .footer{margin:66px auto 60px;max-width:880px;padding:0;width:100%}@media (max-width:879px){.footer{margin:48px auto 36px 19px;max-width:282px}}
