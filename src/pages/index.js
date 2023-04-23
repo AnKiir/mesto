@@ -40,7 +40,7 @@ api.getData()
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
         //userInfo.userId(dataUser._id);
-        cardsSection.renderItems(dataCards);
+        cardsSection.renderAll(dataCards);
     })
     .catch(data => { showError(data) })
 
@@ -101,7 +101,7 @@ const handleEditAvatar = (inputsValue) => {
 // начальный массив карточек
 const cardsSection = new Section({
     renderer: (cardData, userId) => {
-        cardsSection.appendItem(createCard(cardData, userId, '#element-template'))
+        cardsSection.prependItem(createCard(cardData, userId, '#element-template'))
     }
 }, selectors.photosSection);
 
