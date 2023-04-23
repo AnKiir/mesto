@@ -12,17 +12,22 @@ export const options = {
 export const selectors = {
   popupSelector: '.popup',
   popupEditProfile: '.popup-editprofile',
+  popupEditAvatar: '.popup-editavatar',
   popupAddCard: '.popup-addnewcard',
   popupImage: '.popup-element',
-  nameSelector: '.profile__name',
-  introSelector: '.profile__intro'
+  userName: '.profile__name',
+  userInfo: '.profile__intro',
+  userAvatar: '.profile__image',
+  photosSection: '.elements'
 };
+
+export const avatarContainer = document.querySelector('.profile__avatar');
 
 // кнопки
 // кнопка редактирования информации в профиле
 export const profileEditButton = document.querySelector('.profile__edit-button');
 // кнопка добавления новой карточки-картинки
-export const cardEditButton = document.querySelector('.profile__add-button');
+export const cardAddButton = document.querySelector('.profile__add-button');
 
 // формы редактирования (профиль + карточка)
 export const popupEditProfileForm = document.querySelector('#editProfile');
@@ -30,10 +35,10 @@ export const popupAddCard = document.querySelector('#editElement');
 
 // поля ввода инфорамции в формах
 export const nameInput = document.querySelector('.popup__info_type_name');
-export const introInput = document.querySelector('.popup__info_type_intro');
+export const aboutInput = document.querySelector('.popup__info_type_intro');
 
 // элементы-карточки
-export const elements = document.querySelector('.elements');
+//export const elements = document.querySelector('.elements');
 export const templateElement = document.querySelector('#element-template');
 //.content.querySelector('.element');
 export const imagePreview = document.querySelector('.popup__image'); // попап с картинкой

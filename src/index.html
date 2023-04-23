@@ -46,6 +46,20 @@
         <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
 
+    <!--форма редактирование аватарки-->
+    <section class="popup popup-editavatar">
+        <div class="">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="popup__form popup__form_avatar" name="editAvatar" novalidate>
+                <input type="url" name="avatar" class="popup__info popup__info_type_link" minlength="2"
+                    placeholder="Ссылка на картинку" required>
+                <span class="avatar-input-error popup__info-error"></span>
+                <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
+            </form>
+            <button class="popup__button popup__button_type_close" type="button"></button>
+        </div>
+    </section>
+
     <!--форма редактирование профиля-->
     <section class="popup popup-editprofile" id="editProfile">
         <div class="popup__container">
@@ -54,8 +68,8 @@
                 <input type="text" name="name" id="name-input" class="popup__info popup__info_type_name" maxlength="40"
                     minlength="2" placeholder="Имя Профиля" required>
                 <span class="name-input-error popup__info-error"></span>
-                <input type="text" name="intro" id="intro-input" class="popup__info popup__info_type_intro" maxlength="200"
-                    minlength="2" placeholder="Описание Профиля" required>
+                <input type="text" name="about" id="intro-input" class="popup__info popup__info_type_intro"
+                    maxlength="200" minlength="2" placeholder="Описание Профиля" required>
                 <span class="intro-input-error popup__info-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
@@ -68,8 +82,8 @@
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" id="addElement" novalidate>
-                <input type="text" name="name" id="title-input" class="popup__info popup__info_type_title" maxlength="30"
-                    minlength="2" placeholder="Название" required>
+                <input type="text" name="name" id="title-input" class="popup__info popup__info_type_title"
+                    maxlength="30" minlength="2" placeholder="Название" required>
                 <span class="title-input-error popup__info-error"></span>
                 <input type="url" name="link" id="link-input" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
@@ -79,6 +93,15 @@
             <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
         </div>
     </section>
+
+    <!--форма удаления карточек-->
+    <div class="popup popup-delete">
+        <form class="popup__form popup__form_delete">
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button class="popup__button popup__button_type_submit" type="submit">Да</button>
+        </form>
+        <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
+    </div>
 
     <!--попап для картинок-->
     <div class="popup popup-element" id="openImage">
@@ -96,7 +119,10 @@
             <button type="button" class="element__delete-button" aria-label="Удалить фото"></button>
             <div class="element__info">
                 <h2 class="element__title"></h2>
-                <button class="element__like-button" type="button" aria-label="Поставить лайк" name="like"></button>
+                <div class="element__like-container">
+                    <button class="element__like-button" type="button" aria-label="Поставить лайк" name="like"></button>
+                    <p class="element__like-counter"></p>
+                </div>
             </div>
         </acticle>
     </template>

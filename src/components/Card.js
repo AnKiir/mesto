@@ -1,48 +1,83 @@
 export default class Card {
-    constructor(data, templateSelector, { handleCardClick }) {
+    constructor({name, link, likes, owner}, userId, templateSelector, { handleCardClick, handleCardLike, handleCardDelete }, cardId) {
+        this._name = name;
+        this._link = link;
+        this._likeCount = likes;
+        this._ownerId = owner;
         this._templateSelector = templateSelector;
-        this._name = data.name;
-        this._link = data.link;
         this._handleCardClick = handleCardClick;
+        this._handleCardLike = handleCardLike;
+        this._handleCardDelete = handleCardDelete;
+        this._userId = userId;
+        this._cardId = cardId;
     };
 
     // создаём карточку по шаблону
     _getTemplate() {
-        const cardElement = document
-            .querySelector(this._templateSelector)
-            .content
-            .querySelector('.element')
-            .cloneNode(true)
-        return cardElement
+        const card = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+        return card;
     };
 
-    createCard() {
-        this._elementCard = this._getTemplate();
-        this._elementCardImg = this._elementCard.querySelector('.element__image');
-        this._elementCardTitle = this._elementCard.querySelector('.element__title');
-        this._elementCardImg.alt = this._name;
-        this._elementCardImg.src = this._link;
-        this._elementCardTitle.textContent = this._name;
+    generateCard() {
+        this._cardElement = this._getTemplate();
+        this._likeButton = this._cardElement.querySelector('.element__like-button');
+        this._deleteButton = this._cardElement.querySelector('.element__delete-button');
+        this._likes = this._cardElement.querySelector('.element__like-counter');
+        this._cardImg = this._cardElement.querySelector('.element__image');
+        this._cardTitle = this._cardElement.querySelector('.element__title');
+
+        if (this._ownerId !== this._userId) {
+            this._deleteButton.remove();
+        }
+
+        this._cardImg.alt = this._name;
+        this._cardImg.src = this._link;
+        this._cardTitle.textContent = this._name;
         this._setEventListeners();
-        return this._elementCard;
+        this.renderLikes();
+        return this._cardElement;
     };
 
-    // ставим лайк
-    _likeCard() {
-        this.classList.toggle('element__like-button_active');
+    getCardId() {
+        return this._cardId;
     };
+
+    // всё по лайкам
+    // поиск лайков
+    likesCounter() {
+        return this._likeCount.some(like => {
+            return like._id === this._userId;
+        })
+    };
+    // состояние кнопки
+    showLike() {
+        if (this.likesCounter(this._userId)) {
+            this._likeButton.classList.add('.element__like-button_active');
+        } else {
+            this._likeButton.classList.remove('.element__like-button_active');
+        }
+    };
+    // считаем лайки
+    renderLikes() {
+        this._likes.textContent = this._likeCount.length;
+        this.showLike(this._userId);
+    };
+    // ставим лайк
+    setLike(list) {
+        this._likeCount = list;
+    }
 
     // удаляем карточку
     _deleteCard() {
-        this._elementCard.remove();
-        this._elementCard = null;
+        this._cardElement.remove();
+        this._cardElement = null;
     };
 
     // слушатели для карточки: открытие, лайк, удаление
     _setEventListeners() {
-        this._elementCardImg.addEventListener('click', () => { this._handleCardClick(this._name, this._link); });
-        this._elementCard.querySelector('.element__like-button').addEventListener('click', this._likeCard);
-        this._elementCard.querySelector('.element__delete-button').addEventListener('click', () => { this._deleteCard(); });
+        this._cardImg.addEventListener('click', () => { this._handleCardClick(this._name, this._link); });
+        this._likeButton.addEventListener('click', () => this.handleCardLike());
+        this._deleteButton.addEventListener('click', () => this.handleCardDelete());
     };
 
 }
