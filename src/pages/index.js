@@ -38,7 +38,7 @@ api.getData()
         const [dataUser, dataCards] = arg;
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
-        userId = dataUser._id
+        userInfo.userId(dataUser._id);
         cardsSection.renderAll(dataCards);
     })
     .catch(data => { showError(data) })

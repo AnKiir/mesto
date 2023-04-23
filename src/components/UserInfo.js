@@ -3,12 +3,14 @@ export default class UserInfo {
         this._name = document.querySelector(nameSelector);
         this._about = document.querySelector(infoSelector);
         this._avatar = document.querySelector(avatarSelector);
+        this._userId = '';
     };
     // текущие данные пользователя
     getUserInfo() {
         this._userInfo = {
             name: this._name.textContent,
-            about: this._about.textContent
+            about: this._about.textContent,
+            userId: this._userId
         }
         return this._userInfo;
     };
@@ -16,10 +18,11 @@ export default class UserInfo {
     setUserInfo(inputs) {
         this._name.textContent = inputs.name;
         this._about.textContent = inputs.about;
+        this._userId = inputs.id;
     };
     // замена аватарки
     setAvatar(avatar) {
-        this._avatar.src = avatar,
+        this._avatar.src = avatar;
         this._avatar.alt = this._name.textContent
     };
 }

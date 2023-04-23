@@ -76,8 +76,8 @@ export default class Card {
     // слушатели для карточки: открытие, лайк, удаление
     _setEventListeners() {
         this._cardImg.addEventListener('click', () => { this._handleCardClick(this._name, this._link); });
-        this._likeButton.addEventListener('click', () => this.handleCardLike());
-        this._deleteButton.addEventListener('click', () => this.handleCardDelete());
+        this._likeButton.addEventListener('click', () => this._handleCardLike());
+        this._deleteButton.addEventListener('click', () => this._handleCardDelete());
     };
 
 }
