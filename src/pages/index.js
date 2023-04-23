@@ -36,9 +36,10 @@ const api = new Api({
 api.getData()
     .then((arg) => {
         const [dataUser, dataCards] = arg;
+        const userId = dataUser._id;
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
-        userInfo.userId(dataUser._id);
+        //userInfo.userId(dataUser._id);
         cardsSection.renderAll(dataCards);
     })
     .catch(data => { showError(data) })
@@ -135,7 +136,7 @@ const popupEditAvatar = new PopupWithForm({
 const popupCardDelete = new PopupWithSubmit({
     popupSelector: selectors.popupDelete
 }, (evt, card) => {
-    formDeleteCard(evt, card)
+    handleCardDelete(evt, card)
 });
 
 // функция к открытию окна редактирования профиля

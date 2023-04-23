@@ -3,14 +3,14 @@ export default class UserInfo {
         this._name = document.querySelector(nameSelector);
         this._about = document.querySelector(infoSelector);
         this._avatar = document.querySelector(avatarSelector);
-        this._userId = '';
+       // this._userId = '';
     };
     // текущие данные пользователя
     getUserInfo() {
         this._userInfo = {
             name: this._name.textContent,
             about: this._about.textContent,
-            userId: this._userId
+          //  userId: this._userId
         }
         return this._userInfo;
     };
@@ -18,7 +18,7 @@ export default class UserInfo {
     setUserInfo(inputs) {
         this._name.textContent = inputs.name;
         this._about.textContent = inputs.about;
-        this._userId = inputs.id;
+      //  this._userId = inputs.id;
     };
     // замена аватарки
     setAvatar(avatar) {
