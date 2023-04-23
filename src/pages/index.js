@@ -40,7 +40,7 @@ api.getData()
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
         //userInfo.userId(dataUser._id);
-        cardsSection.renderAll(dataCards);
+        cardsSection.renderItems(dataCards);
     })
     .catch(data => { showError(data) })
 
@@ -67,7 +67,7 @@ const handleProfileFormSubmit = (inputsValue) => {
 const handleCardFormSubmit = (inputsValue) => {
     popupAddCard.onLoadingButton('Сохранение...');
     api.addCard(inputsValue.name, inputsValue.link)
-        .then((data) => {
+        .then((data, userId) => {
             cardsSection.prependItem(createCard(data, userId, '#element-template'));
             popupAddCard.close();
         })
@@ -100,7 +100,7 @@ const handleEditAvatar = (inputsValue) => {
 
 // начальный массив карточек
 const cardsSection = new Section({
-    renderer: (cardData) => {
+    renderer: (cardData, userId) => {
         cardsSection.appendItem(createCard(cardData, userId, '#element-template'))
     }
 }, selectors.photosSection);
@@ -113,7 +113,7 @@ const popupWithImage = new PopupWithImage({
 // информация о пользователе
 const userInfo = new UserInfo({
     nameSelector: selectors.userName,
-    introSelector: selectors.userInfo,
+    aboutSelector: selectors.userInfo,
     avatarSelector: selectors.userAvatar
 });
 
@@ -129,7 +129,7 @@ const popupEditProfile = new PopupWithForm({
 
 // попап (редактировать аватарку)
 const popupEditAvatar = new PopupWithForm({
-    popupSelector: popupEditAvatar
+    popupSelector: selectors.popupEditAvatar
 }, handleEditAvatar);
 
 // попап (удалить карточку)
@@ -175,13 +175,13 @@ function createCard(item, userId, templateSelector) {
 profileEditButton.addEventListener('click', openProfile);
 // добавляем новую карточку
 cardAddButton.addEventListener('click', () => { 
-    addCardValidation.clearErrorElements();
+    addCardValidation.resetValidation();
     popupAddCard.open();
-    popupAddCard.offLoadingButton;
+    popupAddCard.offLoadingButton();
 })
 // изменяем аватарку
 avatarContainer.addEventListener('click', function () {
-    editAvatarValidadtion.clearErrorElements();
+    editAvatarValidation.resetValidation();
     popupEditAvatar.open();
     popupEditAvatar.offLoadingButton();
 })
@@ -192,12 +192,12 @@ popupEditProfile.setEventListeners();
 popupCardDelete.setEventListeners();
 
 // ВАЛИДАЦИЯ
-const editFormValidation = new FormValidator(options, popupEditProfile);
-const addCardValidation = new FormValidator(options, popupAddCard);
-const editAvatarValidadtion = new FormValidator(options, popupEditAvatar);
+const editFormValidation = new FormValidator(options, selectors.popupEditProfile);
+const addCardValidation = new FormValidator(options, selectors.popupAddCard);
+const editAvatarValidation = new FormValidator(options, selectors.popupEditAvatar);
 editFormValidation.enableValidation();
 editFormValidation.resetValidation();
 addCardValidation.enableValidation();
 addCardValidation.resetValidation();
-editAvatarValidadtion.enableValidation();
-editAvatarValidadtion.resetValidation();
+editAvatarValidation.enableValidation();
+editAvatarValidation.resetValidation();

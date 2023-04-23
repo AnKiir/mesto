@@ -48,12 +48,12 @@
 
     <!--форма редактирование аватарки-->
     <section class="popup popup-editavatar">
-        <div class="">
+        <div class="popup__container">
             <h2 class="popup__title">Обновить аватар</h2>
             <form class="popup__form popup__form_avatar" name="editAvatar" novalidate>
                 <input type="url" name="avatar" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
-                <span class="avatar-input-error popup__info-error"></span>
+                <span class="popup__info-error link-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
             <button class="popup__button popup__button_type_close" type="button"></button>
@@ -67,10 +67,10 @@
             <form class="popup__form" name="changeInfo" novalidate>
                 <input type="text" name="name" id="name-input" class="popup__info popup__info_type_name" maxlength="40"
                     minlength="2" placeholder="Имя Профиля" required>
-                <span class="name-input-error popup__info-error"></span>
+                <span class="popup__info-error name-input-error"></span>
                 <input type="text" name="about" id="intro-input" class="popup__info popup__info_type_intro"
                     maxlength="200" minlength="2" placeholder="Описание Профиля" required>
-                <span class="intro-input-error popup__info-error"></span>
+                <span class="popup__info-error intro-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
             <button class="popup__button popup__button_type_close" type="button"></button>
@@ -84,10 +84,10 @@
             <form class="popup__form" id="addElement" novalidate>
                 <input type="text" name="name" id="title-input" class="popup__info popup__info_type_title"
                     maxlength="30" minlength="2" placeholder="Название" required>
-                <span class="title-input-error popup__info-error"></span>
+                <span class="popup__info-error title-input-error"></span>
                 <input type="url" name="link" id="link-input" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
-                <span class="link-input-error popup__info-error"></span>
+                <span class="popup__info-error link-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Создать</button>
             </form>
             <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
@@ -96,7 +96,7 @@
 
     <!--форма удаления карточек-->
     <div class="popup popup-delete">
-        <form class="popup__form popup__form_delete">
+        <form class="popup__form popup__form_delete" novalidate>
             <h2 class="popup__title">Вы уверены?</h2>
             <button class="popup__button popup__button_type_submit" type="submit">Да</button>
         </form>

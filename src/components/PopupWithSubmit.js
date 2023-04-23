@@ -4,7 +4,7 @@ export default class PopupWithSubmit extends Popup {
     constructor({popupSelector}, submit) {
         super({popupSelector})
         this._submit = submit;
-        this.popupForm = this._popup.querySelector('.popup__form');
+        this._popupForm = this._popup.querySelector('.popup__form');
     }
 
     open(card) {
@@ -14,11 +14,11 @@ export default class PopupWithSubmit extends Popup {
 
     close() {
         super.close();
-        this.popupForm.reset();
+        this._popupForm.reset();
     }
 
     setEventListeners() {
-        this.popupForm.addEventListener('submit', (evt) => {
+        this._popupForm.addEventListener('submit', (evt) => {
             this._submit(evt, this._card);
         });
         super.setEventListeners();
