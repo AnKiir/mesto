@@ -47,16 +47,16 @@
     </footer>
 
     <!--форма редактирование аватарки-->
-    <section class="popup popup-editavatar">
+    <section class="popup popup-editavatar" id="editAvatar">
         <div class="popup__container">
             <h2 class="popup__title">Обновить аватар</h2>
-            <form class="popup__form popup__form_avatar" name="editAvatar" novalidate>
+            <form class="popup__form" name="changeAvatar" novalidate>
                 <input type="url" name="avatar" id="avatar" class="popup__info popup__info_type_link" minlength="2"
                     placeholder="Ссылка на картинку" required>
                 <span class="popup__info-error avatar-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_type_close" type="button"></button>
+            <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
         </div>
     </section>
 
@@ -73,7 +73,7 @@
                 <span class="popup__info-error intro-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_type_close" type="button"></button>
+            <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
         </div>
     </section>
 

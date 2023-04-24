@@ -32,11 +32,13 @@ const api = new Api({
     }
 })
 
+let userId;
+
 // данные с API
 api.getData()
     .then((arg) => {
         const [dataUser, dataCards] = arg;
-        const userId = dataUser._id;
+        userId = dataUser._id
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
         //userInfo.userId(dataUser._id);
@@ -101,7 +103,7 @@ const handleEditAvatar = (inputsValue) => {
 // начальный массив карточек
 const cardsSection = new Section({
     renderer: (cardData, userId) => {
-        cardsSection.prependItem(createCard(cardData, userId, '#element-template'))
+        cardsSection.appendItem(createCard(cardData, userId, '#element-template'))
     }
 }, selectors.photosSection);
 
