@@ -69,7 +69,7 @@ const handleProfileFormSubmit = (inputsValue) => {
 const handleCardFormSubmit = (inputsValue) => {
     popupAddCard.onLoadingButton('Сохранение...');
     api.addCard(inputsValue.name, inputsValue.link)
-        .then((data, userId) => {
+        .then((data) => {
             cardsSection.addItem(createCard(data, userId, '#element-template'));
             popupAddCard.close();
         })
