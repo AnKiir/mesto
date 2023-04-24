@@ -51,6 +51,14 @@ function showError(err) {
     console.log(err);
 }
 
+// сброс форм отправки
+const formList = Array.from(document.querySelector(options.formSelector));
+formList.forEach(formElement => {
+    formElement.addEventListener('submit', evt => {
+        evt.preventDefault();
+    })
+})
+
 // submit форма редактирования профиля
 const handleProfileFormSubmit = (inputsValue) => {
     popupEditProfile.onLoadingButton('Сохранение...');

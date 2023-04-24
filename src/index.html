@@ -56,7 +56,7 @@
                 <span class="popup__info-error avatar-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
+            <button class="popup__button popup__button_type_close" type="button"></button>
         </div>
     </section>
 
@@ -73,7 +73,7 @@
                 <span class="popup__info-error intro-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
+            <button class="popup__button popup__button_type_close" type="button"></button>
         </div>
     </section>
 
@@ -90,7 +90,7 @@
                 <span class="popup__info-error link-input-error"></span>
                 <button class="popup__button popup__button_type_submit" type="submit">Создать</button>
             </form>
-            <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
+            <button class="popup__button popup__button_type_close" type="button"></button>
         </div>
     </section>
 
@@ -100,7 +100,7 @@
             <h2 class="popup__title">Вы уверены?</h2>
             <button class="popup__button popup__button_type_submit" type="submit">Да</button>
         </form>
-        <button class="popup__button popup__button_type_close" type="button" id="closeEditElement"></button>
+        <button class="popup__button popup__button_type_close" type="button"></button>
     </div>
 
     <!--попап для картинок-->
@@ -115,10 +115,10 @@
     <!--шаблон блоков с карточкам-->
     <template class="element-template" id="element-template">
         <acticle class="element">
-            <img class="element__image" alt="Фотография">
+            <img class="element__image" alt="Фотография" name="name">
             <button type="button" class="element__delete-button" aria-label="Удалить фото"></button>
             <div class="element__info">
-                <h2 class="element__title"></h2>
+                <h2 class="element__title" name="link"></h2>
                 <div class="element__like-container">
                     <button class="element__like-button" type="button" aria-label="Поставить лайк" name="like"></button>
                     <p class="element__like-counter"></p>
