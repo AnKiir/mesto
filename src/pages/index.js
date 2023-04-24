@@ -25,7 +25,7 @@ import UserInfo from '../components/UserInfo.js'; // об авторе
 
 // API
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63/',
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-63',
     headers: {
         authorization: '46df0b53-e88b-4480-800a-7a7df875992f',
         'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const handleCardFormSubmit = (inputsValue) => {
     popupAddCard.onLoadingButton('Сохранение...');
     api.addCard(inputsValue.name, inputsValue.link)
         .then((data, userId) => {
-            cardsSection.prependItem(createCard(data, userId, '#element-template'));
+            cardsSection.addItem(createCard(data, userId, '#element-template'));
             popupAddCard.close();
         })
 }
@@ -192,6 +192,7 @@ popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
 popupEditProfile.setEventListeners();
 popupCardDelete.setEventListeners();
+popupEditAvatar.setEventListeners();
 
 // ВАЛИДАЦИЯ
 const editFormValidation = new FormValidator(options, selectors.popupEditProfile);
