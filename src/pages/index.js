@@ -86,7 +86,7 @@ const handleCardFormSubmit = (evt) => {
 // удаление карточки
 const handleCardDelete = (evt, card) => {
     api.deleteCard(card.getCardId())
-    .then(res => {
+    .then(() => {
         card._deleteCard();
         popupCardDelete.close();
     })
@@ -96,10 +96,9 @@ const handleCardDelete = (evt, card) => {
 // замена аватарки
 const handleEditAvatar = (evt) => {
     popupEditAvatar.onLoadingButton('Сохранение...');
-    console.log(evt);
     api.editAvatar(evt.target.elements.avatar.value)
-        .then((avatar) => {
-            userInfo.setAvatar(avatar);
+        .then((res) => {
+            userInfo.setAvatar(res.avatar);
             popupEditAvatar.close();
         })
         .catch(err => showError(err))
