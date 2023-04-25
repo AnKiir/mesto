@@ -61,10 +61,9 @@ formList.forEach(formElement => {
 // submit форма редактирования профиля
 const handleProfileFormSubmit = (evt) => {
     popupEditProfile.onLoadingButton('Сохранение...');
-    console.log(evt);
     api.editProfile(evt.target.elements.name.value, evt.target.elements.about.value)
-        .then(() => {
-            userInfo.setUserInfo(evt);
+        .then((inputsValue) => {
+            userInfo.setUserInfo(inputsValue);
             popupEditProfile.close();
         })
         .catch(err => showError(err))
@@ -98,9 +97,9 @@ const handleCardDelete = (evt, card) => {
 const handleEditAvatar = (evt) => {
     popupEditAvatar.onLoadingButton('Сохранение...');
     console.log(evt);
-    api.editAvatar(evt.target.avatar['link'])
-        .then(() => {
-            userInfo.setAvatar(evt.target.avatar['link']);
+    api.editAvatar(evt.target.elements.avatar.value)
+        .then((avatar) => {
+            userInfo.setAvatar(avatar);
             popupEditAvatar.close();
         })
         .catch(err => showError(err))
