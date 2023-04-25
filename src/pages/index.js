@@ -61,6 +61,7 @@ formList.forEach(formElement => {
 // submit форма редактирования профиля
 const handleProfileFormSubmit = (evt) => {
     popupEditProfile.onLoadingButton('Сохранение...');
+    console.log(evt);
     api.editProfile(evt.target.elements.name.value, evt.target.elements.about.value)
         .then(() => {
             userInfo.setUserInfo(evt);
@@ -75,7 +76,6 @@ const handleProfileFormSubmit = (evt) => {
 // submit форма добавления карточки
 const handleCardFormSubmit = (evt) => {
     popupAddCard.onLoadingButton('Сохранение...');
-    console.log(evt);
     api.addCard(evt.target.elements.name.value, evt.target.elements.link.value)
         .then((data) => {
             cardsSection.addItem(createCard(data, userId, '#element-template'));
