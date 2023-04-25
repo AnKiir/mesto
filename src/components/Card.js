@@ -3,7 +3,7 @@ export default class Card {
         this._name = name;
         this._link = link;
         this._likeCount = likes;
-        this._ownerId = owner;
+        this._ownerId = owner._id;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._handleCardLike = handleCardLike;
@@ -44,17 +44,17 @@ export default class Card {
 
     // всё по лайкам
     // поиск лайков
-    likesCounter() {
+    hasLikes() {
         return this._likeCount.some(like => {
             return like._id === this._userId;
         })
     };
     // состояние кнопки
     showLike() {
-        if (this.likesCounter(this._userId)) {
-            this._likeButton.classList.add('.element__like-button_active');
+        if (this.hasLikes(this._userId)) {
+            this._likeButton.classList.add('element__like-button_active');
         } else {
-            this._likeButton.classList.remove('.element__like-button_active');
+            this._likeButton.classList.remove('element__like-button_active');
         }
     };
     // считаем лайки

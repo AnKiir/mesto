@@ -95,13 +95,15 @@
     </section>
 
     <!--форма удаления карточек-->
-    <div class="popup popup-delete">
-        <form class="popup__form popup__form_delete" novalidate>
+    <section class="popup popup-delete" id="deleteElement">
+        <div class="popup__container">
             <h2 class="popup__title">Вы уверены?</h2>
-            <button class="popup__button popup__button_type_submit" type="submit">Да</button>
-        </form>
-        <button class="popup__button popup__button_type_close" type="button"></button>
-    </div>
+            <form class="popup__form" novalidate>
+                <button class="popup__button popup__button_type_submit" type="submit">Да</button>
+            </form>
+            <button class="popup__button popup__button_type_close" type="button"></button>
+        </div>
+    </section>
 
     <!--попап для картинок-->
     <div class="popup popup-element" id="openImage">

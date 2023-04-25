@@ -38,10 +38,9 @@ let userId;
 api.getData()
     .then((arg) => {
         const [dataUser, dataCards] = arg;
-        userId = dataUser._id
+        userId = dataUser._id;
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
-        //userInfo.userId(dataUser._id);
         cardsSection.renderItems(dataCards);
     })
     .catch(data => { showError(data) })
@@ -52,7 +51,7 @@ function showError(err) {
 }
 
 // сброс форм отправки
-const formList = Array.from(document.querySelector(options.formSelector));
+const formList = Array.from(document.querySelectorAll(options.formSelector));
 formList.forEach(formElement => {
     formElement.addEventListener('submit', evt => {
         evt.preventDefault();
@@ -60,11 +59,11 @@ formList.forEach(formElement => {
 })
 
 // submit форма редактирования профиля
-const handleProfileFormSubmit = (inputsValue) => {
+const handleProfileFormSubmit = (evt) => {
     popupEditProfile.onLoadingButton('Сохранение...');
-    api.editProfile(inputsValue.name, inputsValue.about)
+    api.editProfile(evt.target.elements.name.value, evt.target.elements.about.value)
         .then(() => {
-            userInfo.setUserInfo(inputsValue);
+            userInfo.setUserInfo(evt);
             popupEditProfile.close();
         })
         .catch(err => showError(err))
@@ -74,32 +73,34 @@ const handleProfileFormSubmit = (inputsValue) => {
 }
 
 // submit форма добавления карточки
-const handleCardFormSubmit = (inputsValue) => {
+const handleCardFormSubmit = (evt) => {
     popupAddCard.onLoadingButton('Сохранение...');
-    api.addCard(inputsValue.name, inputsValue.link)
+    console.log(evt);
+    api.addCard(evt.target.elements.name.value, evt.target.elements.link.value)
         .then((data) => {
             cardsSection.addItem(createCard(data, userId, '#element-template'));
             popupAddCard.close();
         })
+        .catch(err => showError(err))
 }
 
 // удаление карточки
 const handleCardDelete = (evt, card) => {
-    evt.preventDefault();
     api.deleteCard(card.getCardId())
     .then(res => {
-        card.deleteCard();
+        card._deleteCard();
         popupCardDelete.close();
     })
     .catch(err => showError(err))
 }
 
 // замена аватарки
-const handleEditAvatar = (inputsValue) => {
+const handleEditAvatar = (evt) => {
     popupEditAvatar.onLoadingButton('Сохранение...');
-    api.editAvatar(inputsValue['link'])
+    console.log(evt);
+    api.editAvatar(evt.target.avatar['link'])
         .then(() => {
-            userInfo.setAvatar(inputsValue['link']);
+            userInfo.setAvatar(evt.target.avatar['link']);
             popupEditAvatar.close();
         })
         .catch(err => showError(err))
@@ -110,7 +111,7 @@ const handleEditAvatar = (inputsValue) => {
 
 // начальный массив карточек
 const cardsSection = new Section({
-    renderer: (cardData, userId) => {
+    renderer: (cardData) => {
         cardsSection.addItem(createCard(cardData, userId, '#element-template'))
     }
 }, selectors.photosSection);
@@ -163,12 +164,14 @@ function createCard(item, userId, templateSelector) {
             popupWithImage.open(name, link);
         },
         handleCardLike: () => {
-            const likesCounter = card.likesCounter();
-            const result = likesCounter ? api.deleteLike(card.getCardId()) : api.setLike(card.getCardId());
+            const hasLikes = card.hasLikes();
+            console.log(hasLikes);
+            const result = hasLikes ? api.deleteLike(card.getCardId()) : api.setLike(card.getCardId());
             result
             .then(data => {
                 card.setLike(data.likes);
                 card.renderLikes();
+                card.showLike();
             })
             .catch(err => showError(err));
         },

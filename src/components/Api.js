@@ -19,7 +19,7 @@ export default class Api {
   // пользователь
   getUserData() {
     return fetch(`${this._url}/users/me`, {
-      headers: this._headers,
+      headers: this._headers
     })
       .then((res) => this._checkResponse(res))
   }
@@ -59,6 +59,7 @@ export default class Api {
 
   // добавление карточки
   addCard(name, link) {
+    console.log(name, link);
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,

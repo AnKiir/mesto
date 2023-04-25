@@ -3,7 +3,6 @@ export default class UserInfo {
         this._name = document.querySelector(nameSelector);
         this._about = document.querySelector(aboutSelector);
         this._avatar = document.querySelector(avatarSelector);
-       // this._userId = '';
     };
     // текущие данные пользователя
     getUserInfo() {
@@ -17,7 +16,6 @@ export default class UserInfo {
     setUserInfo(inputs) {
         this._name.textContent = inputs.name;
         this._about.textContent = inputs.about;
-      //  this._userId = inputs.id;
     };
     // замена аватарки
     setAvatar(avatar) {

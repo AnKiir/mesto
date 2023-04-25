@@ -1,3 +1,7 @@
+// для api
+// export const token = '46df0b53-e88b-4480-800a-7a7df875992f';
+// export const adress = 'https://mesto.nomoreparties.co/v1/cohort-63';
+
 // для валидации
 export const options = {
   formSelector: '.popup__form',
