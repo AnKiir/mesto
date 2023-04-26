@@ -14,12 +14,11 @@ export default class PopupWithSubmit extends Popup {
 
     close() {
         super.close();
-        this._popupForm.reset();
     }
 
     setEventListeners() {
-        this._popupForm.addEventListener('submit', (evt) => {
-            this._submit(evt, this._card);
+        this._popupForm.addEventListener('submit', () => {
+            this._submit(this._card);
         });
         super.setEventListeners();
     }

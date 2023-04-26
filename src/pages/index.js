@@ -41,6 +41,7 @@ api.getData()
         userId = dataUser._id;
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
+        console.log(dataCards);
         cardsSection.renderItems(dataCards);
     })
     .catch(data => { showError(data) })
@@ -59,9 +60,9 @@ formList.forEach(formElement => {
 })
 
 // submit форма редактирования профиля
-const handleProfileFormSubmit = (evt) => {
+const handleProfileFormSubmit = ({name, about}) => {
     popupEditProfile.onLoadingButton('Сохранение...');
-    api.editProfile(evt.target.elements.name.value, evt.target.elements.about.value)
+    api.editProfile(name, about)
         .then((inputsValue) => {
             userInfo.setUserInfo(inputsValue);
             popupEditProfile.close();
@@ -73,18 +74,19 @@ const handleProfileFormSubmit = (evt) => {
 }
 
 // submit форма добавления карточки
-const handleCardFormSubmit = (evt) => {
+const handleCardFormSubmit = ({name, link}) => {
     popupAddCard.onLoadingButton('Сохранение...');
-    api.addCard(evt.target.elements.name.value, evt.target.elements.link.value)
-        .then((data) => {
-            cardsSection.addItem(createCard(data, userId, '#element-template'));
+    console.log(name, link);
+    api.addCard(name, link)
+        .then((cardData) => {
+            cardsSection.addItem(createCard(cardData));
             popupAddCard.close();
         })
         .catch(err => showError(err))
 }
 
 // удаление карточки
-const handleCardDelete = (evt, card) => {
+const handleCardDelete = (card) => {
     api.deleteCard(card.getCardId())
     .then(() => {
         card._deleteCard();
@@ -94,9 +96,9 @@ const handleCardDelete = (evt, card) => {
 }
 
 // замена аватарки
-const handleEditAvatar = (evt) => {
+const handleEditAvatar = ({avatar}) => {
     popupEditAvatar.onLoadingButton('Сохранение...');
-    api.editAvatar(evt.target.elements.avatar.value)
+    api.editAvatar(avatar)
         .then((res) => {
             userInfo.setAvatar(res.avatar);
             popupEditAvatar.close();
@@ -110,7 +112,7 @@ const handleEditAvatar = (evt) => {
 // начальный массив карточек
 const cardsSection = new Section({
     renderer: (cardData) => {
-        cardsSection.addItem(createCard(cardData, userId, '#element-template'))
+        cardsSection.appendItem(createCard(cardData))
     }
 }, selectors.photosSection);
 
@@ -144,20 +146,21 @@ const popupEditAvatar = new PopupWithForm({
 // попап (удалить карточку)
 const popupCardDelete = new PopupWithSubmit({
     popupSelector: selectors.popupDelete
-}, (evt, card) => {
-    handleCardDelete(evt, card)
+}, (card) => {
+    handleCardDelete(card)
 });
 
 // функция к открытию окна редактирования профиля
 function openProfile() {
-    nameInput.value = userInfo.getUserInfo().name;
-    aboutInput.value = userInfo.getUserInfo().about;
+    const aboutInfo = userInfo.getUserInfo();
+    nameInput.value = aboutInfo.name;
+    aboutInput.value = aboutInfo.about;
     popupEditProfile.open();
 }
 
 // функция создания новой карточки с ящеркой
-function createCard(item, userId, templateSelector) {
-    const card = new Card(item, userId, templateSelector, {
+function createCard(item) {
+    const card = new Card(item, userId, '#element-template', {
         handleCardClick: (name, link) => {
             popupWithImage.open(name, link);
         },
@@ -188,13 +191,11 @@ profileEditButton.addEventListener('click', openProfile);
 cardAddButton.addEventListener('click', () => { 
     addCardValidation.resetValidation();
     popupAddCard.open();
-    popupAddCard.offLoadingButton();
 })
 // изменяем аватарку
 avatarContainer.addEventListener('click', function () {
     editAvatarValidation.resetValidation();
     popupEditAvatar.open();
-    popupEditAvatar.offLoadingButton();
 })
 
 popupWithImage.setEventListeners();
