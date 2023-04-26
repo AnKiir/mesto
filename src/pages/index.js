@@ -41,7 +41,6 @@ api.getData()
         userId = dataUser._id;
         userInfo.setUserInfo(dataUser);
         userInfo.setAvatar(dataUser.avatar);
-        console.log(dataCards);
         cardsSection.renderItems(dataCards);
     })
     .catch(data => { showError(data) })
@@ -76,7 +75,6 @@ const handleProfileFormSubmit = ({name, about}) => {
 // submit форма добавления карточки
 const handleCardFormSubmit = ({name, link}) => {
     popupAddCard.onLoadingButton('Сохранение...');
-    console.log(name, link);
     api.addCard(name, link)
         .then((cardData) => {
             cardsSection.addItem(createCard(cardData));
@@ -166,7 +164,6 @@ function createCard(item) {
         },
         handleCardLike: () => {
             const hasLikes = card.hasLikes();
-            console.log(hasLikes);
             const result = hasLikes ? api.deleteLike(card.getCardId()) : api.setLike(card.getCardId());
             result
             .then(data => {
